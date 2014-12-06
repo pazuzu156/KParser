@@ -4,6 +4,21 @@ A simple parsing tool for my website
 ## About
 KParser is a parsing tool for my website. It's got BBCode, some of my own variants of it, and syntax highlighting support with GeSHi
 
+## Supported Tags
+[p]Paragraph Tag[/p]  
+[b]Bold Text Tag[/p]  
+[i]Italicized Tag[/i]  
+[u]Underlined Text Tag[/u]  
+[strike]Strikethrough Text Tag[/strike]  
+[over]Overlined Text Tag[/over]  
+[hr] - Horizonal Rule Tag  
+[hr type=classname] - Horizonal Rule Tag with custom class  
+[ul]Unordered List[/ul]  
+[ol]Ordered List[/ol]  
+[li]List Item Tag - Place inside ordered or unordered list tags[/li]  
+[code=language]Code Block Tag[/code] - Code block is tied in with GeSHi; the syntax highlighter for PHP. GeSHi is required to use KParser because of this  
+[ytvid url=YOUTUBE_VIDEO_URL] - Uses full or share link for YouTube videos  
+
 ## Install
 To install this into Laravel, include the following in your composer.json:  
 ```
