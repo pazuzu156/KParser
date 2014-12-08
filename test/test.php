@@ -24,8 +24,8 @@ $text .= "[b]Bold Text[/b][nl]";
 $text .= "[i]Italic Text[/i][nl]";
 $text .= "Image: [img src=http://www.kalebklein.com/images/kk-icon.png][nl]";
 $text .= "[u]Underlined Text[/u][nl]";
-$text .= "[strike]Strike Through Text[/strike][nl]";
-$text .= "[over]Overlined Text[/over][nl]";
+$text .= "[s]Strike Through Text[/s][nl]";
+$text .= "[o]Overlined Text[/o][nl]";
 $text .= "Horizontal Rule: [hr]";
 $text .= "Horizontal Rule With Style: [hr type=hrclass]";
 $text .= "Unordered List: [ul][nl]";
@@ -36,6 +36,16 @@ $text .= "Ordered List: [ol][nl]";
 $text .= "[li]List Item 1[/li]";
 $text .= "[li]List Item 2[/li]";
 $text .= "[li]List Item 3[/li][/ol]";
+$text .= "[size=20]20px Sized Text[/size][nl]";
+$text .= "[color=red]Red Text[/color][nl]";
+$text .= "[color=#00ff00]Green Text[/color][nl]";
+$text .= "[center]Centered Text[/center][nl]";
+$text .= "[quote]Quote from unknown source. So citation left out[/quote]";
+$text .= "[quote=Wikipedia]A quote from a known source. Source cited in code[/quote]";
+$text .= "[url=http://www.kalebklein.com]My Website[/url] - Link with URL[nl]";
+$text .= "[url=http://www.google.com newtab]Google[/url] - Link with URL that opens in a new tab[nl]";
+$text .= "[url]http://www.facebook.com[/url] - Unnamed URL[nl]";
+
 $text .= "[code=cpp]#include \"<iostream>\"
 
 using namespace std;
@@ -47,7 +57,7 @@ int main()
 
 	return 0;
 }[/code]";
-$text .= "Video: [ytvid url=https://www.youtube.com/watch?v=g4rYh3e97VU]";
+$text .= "Video: [youtube url=https://www.youtube.com/watch?v=g4rYh3e97VU]";
 
 $text .= "[hr type=hrclass]";
 $text .= "<h2>Emoticons</h2>";

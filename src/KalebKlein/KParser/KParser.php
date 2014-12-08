@@ -14,10 +14,24 @@ class KParser
 		$replace[] = '<img src="$1">';
 		$pattern[] = '/\[u\](.*?)\[\/u\]/i';
 		$replace[] = '<span style="text-decoration: underline;">$1</span>';
-		$pattern[] = '/\[strike\](.*?)\[\/strike\]/i';
+		$pattern[] = '/\[s\](.*?)\[\/s\]/i';
 		$replace[] = '<span style="text-decoration: line-through;">$1</span>';
-		$pattern[] = '/\[over\](.*?)\[\/over\]/i';
+		$pattern[] = '/\[o\](.*?)\[\/o\]/i';
 		$replace[] = '<span style="text-decoration: overline;">$1</span>';
+		$pattern[] = '/\[size=([0-9]+)(?:px|pt)?\](.*?)\[\/size\]/i';
+		$replace[] = '<span style="font-size: $1;">$2</span>';
+		$pattern[] = '/\[color=(\#[a-fA-F0-9]+)\](.*?)\[\/color\]/i';
+		$replace[] = '<span style="color: $1">$2</span>';
+		$pattern[] = '/\[color=([a-zA-Z]+)\](.*?)\[\/color\]/i';
+		$replace[] = '<span style="color: $1">$2</span>';
+		$pattern[] = '/\[center\](.*?)\[\/center\]/i';
+		$replace[] = '<div style="text-align: center;">$1</div>';
+		$pattern[] = '/\[quote\](.*?)\[\/quote\]/i';
+		$replace[] = '<blockquote>$1</blockquote>';
+		$pattern[] = '/\[quote\=([a-zA-Z0-9\.\_\-\s]+)\](.*?)\[\/quote\]/i';
+		$replace[] = '<blockquote cite="$1">$2</blockquote>';
+		$pattern[] = '/\[url\](.*?)\[\/url\]/i';
+		$replace[] = '<a href="$1">$1</a>';
 
 		if(!$comment)
 		{
@@ -40,7 +54,7 @@ class KParser
 			$pattern[] = '/\[nl\]/i';
 			$replace[] = '<br>';
 
-			$text = preg_replace_callback('#\[ytvid\surl=(.*)\]#sU', function($matches) {
+			$text = preg_replace_callback('#\[youtube\surl=(.*)\]#sU', function($matches) {
 				$url = $matches[1];
 				$e = explode("u.", $url);
 				if(count($e) == 2)
@@ -58,8 +72,16 @@ class KParser
 			}, $text);
 		}
 
-		$text = preg_replace_callback('#\[a\shref=(.*)\](.*)\[\/a\]#sU', function($matches) {
-			return Views::linkTo($matches[1], $matches[2], true);
+		$text = preg_replace_callback('/\[url=(http:\/\/|https:\/\/|mailto:)(.*?)(\snewtab)?\](.*?)\[\/url\]/i', function($matches) {
+			$target = $matches[3] ? " target=\"_blank\">" : ">";
+
+			$link = "<a href=\""
+				. $matches[1] . $matches[2] . "\""
+				. $target
+				. $matches[4]
+				. "</a>";
+
+			return $link;
 		}, $text);
 
 		$text = preg_replace($pattern, $replace, $text);
@@ -95,7 +117,7 @@ class KParser
 		return $text;
 	}
 
-	private static function parseEmoticons($text)
+	private function parseEmoticons($text)
 	{
 		$text = str_replace(":angry:", "<img src='http://cdn.kalebklein.com/kparser/img/angry.gif' alt='angry' />", $text);
 		$text = str_replace(":arrow:", "<img src='http://cdn.kalebklein.com/kparser/img/arrow.gif' alt='arrow' />", $text);
