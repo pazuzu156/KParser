@@ -1,9 +1,28 @@
 <?php namespace KalebKlein\KParser;
 
+/**
+ * Class KParser
+ *
+ * Parsing class for parsing supported tags into HTML. For use in blogs and such. Or whatever you want it
+ * to be used for. :)
+ *
+ * @package KalebKlein\KParser
+ * @copyright 2014 Kaleb Klein
+ * @author Kaleb Klein <klein.jae@gmail.com>
+ * @version 1.0.4
+ */
 class KParser
 {
+	/**
+	 * parse - Parses all the different tags used in the page content
+	 *
+	 * @param $text - The content to be parsed
+	 * @param bool $comment - Comment check. Certain tags are not parsed if set to true
+	 * @return mixed - The parsed content returned
+	 */
 	public function parse($text, $comment = false)
 	{
+		/* Global patterns for code. Ones to always be parsed. Also the simplest patterns */
 		$pattern[] = '/\[p\](.*?)\[\/p\]/i';
 		$replace[] = '<p>$1</p>';
 		$pattern[] = '/\[b\](.*?)\[\/b\]/i';
@@ -33,6 +52,7 @@ class KParser
 		$pattern[] = '/\[url\](.*?)\[\/url\]/i';
 		$replace[] = '<a href="$1">$1</a>';
 
+		/* If it's a comment, then certain tags must not be rendered. Namely ones that edit the style of the page */
 		if(!$comment)
 		{
 			$pattern[] = '#\[hr\]#sU';
@@ -54,6 +74,10 @@ class KParser
 			$pattern[] = '/\[nl\]/i';
 			$replace[] = '<br>';
 
+			/* The YouTube tag is a bit more tricky to parse. Since
+			 * the YouTube tag supports multiple ways to give a URL, each type
+			 * supplied needs to be rendered correctly
+			 */
 			$text = preg_replace_callback('#\[youtube\surl=(.*)\]#sU', function($matches) {
 				$url = $matches[1];
 				$e = explode("u.", $url);
@@ -78,6 +102,8 @@ class KParser
 			}, $text);
 		}
 
+		/* The URL tag is also a bit more complicating to parse. It supportes http, https, and mailto links.
+		 * It also supports opening links in a new tab using the newtab directive */
 		$text = preg_replace_callback('/\[url=(http:\/\/|https:\/\/|mailto:)(.*?)(\snewtab)?\](.*?)\[\/url\]/i', function($matches) {
 			$target = $matches[3] ? " target=\"_blank\">" : ">";
 
@@ -90,6 +116,7 @@ class KParser
 			return $link;
 		}, $text);
 
+		// The function that parses all the code. This is run before the [code][/code] and emoticons are parsed
 		$text = preg_replace($pattern, $replace, $text);
 
 		// Emoticons for comments
@@ -100,50 +127,76 @@ class KParser
 			{
 				if(preg_match('#\[code=([a-zA-Z0-9]+)](.+)\[/code]#sU', $text))
 				{
-					$text = KParser::parseEmoticons($text);
+					$text = self::parseEmoticons($text);
 				}
 			}
 			else
 			{
-				$text = KParser::parseEmoticons($text);
+				$text = self::parseEmoticons($text);
 			}
 		}
 
+		// This is the parsing for the code. Since it doesn't get parsed with the rest of the tags
+		// and is parsed using CodeDocument, it's parsed separately from everything else.
 		$text = preg_replace_callback('#\[code=([a-zA-Z0-9]+)](.+)\[/code]#sU',function($matches){
-		$geshi = Document::getInstance();
-		$m = html_entity_decode($matches[2]);
-		$geshi->loadDocument($m, $matches[1]);
+			$geshi = CodeDocument::getInstance();
+			$m = html_entity_decode($matches[2]);
+			$geshi->loadDocument($m, $matches[1]);
 			return $geshi->parse();
 		}, $text);
 
-
+		// If this is a comment, enable linebreaks
+		// If not, the [nl] tag takes care of newlines
 		if($comment)
 			$text = nl2br($text);
 
 		return $text;
 	}
 
+	/**
+	 * parseEmoticons - Parses certain characters for showing emoticons. This is only run when comment
+	 * is enabled in the parse() method
+	 *
+	 * @access private - Private method: Doesn't need to be accessed outside KParser
+	 * @param $text - The text to be parsed
+	 * @return mixed - The image returned from the parsed text
+	 */
 	private function parseEmoticons($text)
 	{
-		$text = str_replace(":angry:", "<img src='http://cdn.kalebklein.com/kparser/img/angry.gif' alt='angry' />", $text);
-		$text = str_replace(":arrow:", "<img src='http://cdn.kalebklein.com/kparser/img/arrow.gif' alt='arrow' />", $text);
-		$text = str_replace(":bigsmile:", "<img src='http://cdn.kalebklein.com/kparser/img/biggrin.gif' alt='biggrin' />", $text);
-		$text = str_replace(":blink:", "<img src='http://cdn.kalebklein.com/kparser/img/blink.gif' alt='blink' />", $text);
-		$text = str_replace(":cool:", "<img src='http://cdn.kalebklein.com/kparser/img/cool.gif' alt='cool' />", $text);
-		$text = str_replace(":dunno:", "<img src='http://cdn.kalebklein.com/kparser/img/dry.gif' alt='dry' />", $text);
-		$text = str_replace(":!:", "<img src='http://cdn.kalebklein.com/kparser/img/exclamation.gif' alt='exclamation' />", $text);
-		$text = str_replace(":omg:", "<img src='http://cdn.kalebklein.com/kparser/img/huh.gif' alt='huh' />", $text);
-		$text = str_replace(":laugh:", "<img src='http://cdn.kalebklein.com/kparser/img/laugh.gif' alt='laugh' />", $text);
-		$text = str_replace(":ohmy:", "<img src='http://cdn.kalebklein.com/kparser/img/ohmy.gif' alt='oh my' />", $text);
-		$text = str_replace(":ninja:", "<img src='http://cdn.kalebklein.com/kparser/img/ph34r.gif' alt='ninja' />", $text);
-		$text = str_replace(":puke:", "<img src='http://cdn.kalebklein.com/kparser/img/puke.gif' alt='puke' />", $text);
-		$text = str_replace(":??:", "<img src='http://cdn.kalebklein.com/kparser/img/question.gif' alt='question' />", $text);
-		$text = str_replace(":we:", "<img src='http://cdn.kalebklein.com/kparser/img/rolleyes.gif' alt='rolleyes' />", $text);
-		$text = str_replace(":frown:", "<img src='http://cdn.kalebklein.com/kparser/img/sad.gif' alt='sad' />", $text);
-		$text = str_replace(":smile:", "<img src='http://cdn.kalebklein.com/kparser/img/smile.gif' alt='smile' />", $text);
-		$text = str_replace(":tongue:", "<img src='http://cdn.kalebklein.com/kparser/img/tongue.gif' alt='tongue' />", $text);
-		$text = str_replace(":123:", "<img src='http://cdn.kalebklein.com/kparser/img/unsure.gif' alt='unsure' />", $text);
-		$text = str_replace(":wink:", "<img src='http://cdn.kalebklein.com/kparser/img/wink.gif' alt='wink' />", $text);
+		$emote = array(
+			"angry" 	=> "angry",
+			"arrow" 	=> "arrow",
+			"bigsmile" 	=> "biggrin",
+			"blink" 	=> "blink",
+			"cool" 		=> "cool",
+			"dunno" 	=> "dry",
+			"!" 		=> "exclamation",
+			"omg" 		=> "huh",
+			"laugh" 	=> "laugh",
+			"ohmy" 		=> "ohmy",
+			"ninja" 	=> "ph34r",
+			"puke" 		=> "puke",
+			"??" 		=> "question",
+			"we" 		=> "rolleyes",
+			"frown" 	=> "sad",
+			"smile" 	=> "smile",
+			"tongue" 	=> "tongue",
+			"123" 		=> "unsure",
+			"wink" 		=> "wink"
+		);
+
+		foreach($emote as $key => $value)
+		{
+			$text = str_replace(
+				':'. $key . ':',
+				'<img src="http://cdn.kalebklein.com/kparser/img/'
+				. $value
+				. '.gif" alt="'
+				. $value
+				. '">',
+				$text
+			);
+		}
 
 		return $text;
 	}
