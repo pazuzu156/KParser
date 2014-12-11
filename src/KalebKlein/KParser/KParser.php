@@ -67,7 +67,13 @@ class KParser
 					$exp = explode("?v=", $url);
 					$videoID = $exp[1];
 				}
-				$s = "<iframe id='ytvid' class='ytvid' width='640' height='390' frameborder='0' src='http://cdn.kalebklein.com/kparser/loadytvid.php?videoID=" . $videoID . "' style='display: block; overflow: hidden; padding: 0;' scrolling='no'><p>Sorry, you're browser doesn't support the iFrame element!</p></iframe>";
+
+				$s = '<iframe id="ytvid" class="ytvid" with="640" height="390" frameborder="0" '
+					. 'src=http://cdn.kalebklein.com/kparser/loadytvid.php?videoID='
+					. $videoID
+					. ' style="display: block; overflow: hidden; padding: 0;"'
+					. ' scrolling="no">'
+					. '<p>Sorry, your browser doesn\'t support the iFrame element!</p></iframe>';
 				return $s;
 			}, $text);
 		}
