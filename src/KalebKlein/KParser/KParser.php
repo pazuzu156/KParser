@@ -69,8 +69,8 @@ class KParser
 				}
 
 				$s = '<iframe id="ytvid" class="ytvid" with="640" height="390" frameborder="0" '
-					. 'src=http://cdn.kalebklein.com/kparser/loadytvid.php?videoID='
-					. $videoID
+					. 'src="http://cdn.kalebklein.com/kparser/loadytvid.php?videoID='
+					. $videoID . '"'
 					. ' style="display: block; overflow: hidden; padding: 0;"'
 					. ' scrolling="no">'
 					. '<p>Sorry, your browser doesn\'t support the iFrame element!</p></iframe>';
