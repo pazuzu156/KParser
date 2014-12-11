@@ -193,12 +193,14 @@ class KParser
 
 		foreach($emote as $key => $value)
 		{
+			//echo ((in_array($key, $swaparray)) ? "echo value | {$value}" : "echo key | {$key}") . "<br>";
+			$alt = (in_array($key, $swaparray)) ? $value : $key;
 			$text = str_replace(
 				':'. $key . ':',
 				'<img src="http://cdn.kalebklein.com/kparser/img/'
 				. $value
 				. '.gif" alt="'
-				. (in_array($value, $swaparray)) ? $value : $key
+				. $alt
 				. '">',
 				$text
 			);

@@ -1,11 +1,18 @@
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
+/**
+ * test.php
+ *
+ * PHP File that tests each tag built in to KParser
+ */
 
-use KalebKlein\KParser\KParser;
+require __DIR__ . '/../vendor/autoload.php'; // Require the autoloading file from Composer
+
+use KalebKlein\KParser\KParser; // Use the KParser class from the KalebKlein\KParser package
 
 ?>
 
+<!-- Style for custom hr and codeblock -->
 <style type="text/css">
 hr.hrclass
 {
@@ -14,6 +21,23 @@ hr.hrclass
 	background-color: #ccc;
 	border-radius: 2px;
 	margin: 25px 0;
+}
+
+.codeBlock {
+	background:#dae4ed;
+	border:1px solid #0D8EFF;
+	color:#000;
+	padding:5px;
+	font-family: monospace;
+	overflow: auto;
+	font-size: 12px;
+	max-height: 300px;
+}
+.codeBlockHeader {
+	color: green;
+	margin-bottom: -15px;
+	font-weight: bold;
+	padding: 10px 10px;
 }
 </style>
 
@@ -96,14 +120,14 @@ echo "<tr>\n";
 
 foreach($emotearray as $emote)
 {
-	echo "<th style='border: 1px inset #000;'>" . $emote . "</th>\n";
+	echo "<th style='border: 1px inset #000;'>\n\t" . $emote . "\n</th>\n";
 }
 
 echo "</tr>\n<tr>\n";
 
 foreach($emotearray as $emote)
 {
-	echo KParser::parse("<td style='border: 1px inset #000;'>" . $emote . "</td>", true);
+	echo "<td style='border: 1px inset #000;'>\n\t" . KParser::parse($emote, true) . "\n</td>" . "\n";
 }
 
 echo "</tr>\n";
