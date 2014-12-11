@@ -68,7 +68,7 @@ class KParser
 					$videoID = $exp[1];
 				}
 
-				$s = '<iframe id="ytvid" class="ytvid" with="640" height="390" frameborder="0" '
+				$s = '<iframe id="ytvid" class="ytvid" width="640" height="390" frameborder="0" '
 					. 'src="http://cdn.kalebklein.com/kparser/loadytvid.php?videoID='
 					. $videoID . '"'
 					. ' style="display: block; overflow: hidden; padding: 0;"'
