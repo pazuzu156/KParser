@@ -157,7 +157,6 @@ class KParser
 	 * parseEmoticons - Parses certain characters for showing emoticons. This is only run when comment
 	 * is enabled in the parse() method
 	 *
-	 * @access private - Private method: Doesn't need to be accessed outside KParser
 	 * @param $text - The text to be parsed
 	 * @return mixed - The image returned from the parsed text
 	 */
@@ -185,6 +184,13 @@ class KParser
 			"wink" 		=> "wink"
 		);
 
+		$swaparray = array(
+			'??',
+			'!',
+			'we',
+			'123'
+		);
+
 		foreach($emote as $key => $value)
 		{
 			$text = str_replace(
@@ -192,7 +198,7 @@ class KParser
 				'<img src="http://cdn.kalebklein.com/kparser/img/'
 				. $value
 				. '.gif" alt="'
-				. $value
+				. (in_array($value, $swaparray)) ? $value : $key
 				. '">',
 				$text
 			);
