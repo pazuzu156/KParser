@@ -121,9 +121,7 @@ class KParser
 
 		// Emoticons for comments
 		// Gotta be done at the end, but before [code]
-		if($comment)
-		{
-			if(strstr($text, "[code"))
+		if(strstr($text, "[code"))
 			{
 				if(preg_match('#\[code=([a-zA-Z0-9]+)](.+)\[/code]#sU', $text))
 				{
@@ -134,7 +132,6 @@ class KParser
 			{
 				$text = self::parseEmoticons($text);
 			}
-		}
 
 		// This is the parsing for the code. Since it doesn't get parsed with the rest of the tags
 		// and is parsed using CodeDocument, it's parsed separately from everything else.
