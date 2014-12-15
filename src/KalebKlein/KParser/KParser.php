@@ -119,19 +119,19 @@ class KParser
 		// The function that parses all the code. This is run before the [code][/code] and emoticons are parsed
 		$text = preg_replace($pattern, $replace, $text);
 
-		// Emoticons for comments
+		// Emoticons
 		// Gotta be done at the end, but before [code]
 		if(strstr($text, "[code"))
-			{
-				if(preg_match('#\[code=([a-zA-Z0-9]+)](.+)\[/code]#sU', $text))
-				{
-					$text = self::parseEmoticons($text);
-				}
-			}
-			else
+		{
+			if(preg_match('#\[code=([a-zA-Z0-9]+)](.+)\[/code]#sU', $text))
 			{
 				$text = self::parseEmoticons($text);
 			}
+		}
+		else
+		{
+			$text = self::parseEmoticons($text);
+		}
 
 		// This is the parsing for the code. Since it doesn't get parsed with the rest of the tags
 		// and is parsed using CodeDocument, it's parsed separately from everything else.
