@@ -18,9 +18,10 @@ class KParser
 	 *
 	 * @param $text - The content to be parsed
 	 * @param bool $comment - Comment check. Certain tags are not parsed if set to true
+	 * @param bool $striptags - Strips parsable tags from text. If you don't want anything parsed
 	 * @return mixed - The parsed content returned
 	 */
-	public function parse($text, $comment = false)
+	public function parse($text, $comment = false, $striptags = false)
 	{
 		/* Global patterns for code. Ones to always be parsed. Also the simplest patterns */
 		$pattern[] = '/\[p\](.*?)\[\/p\]/i';
@@ -147,7 +148,10 @@ class KParser
 		if($comment)
 			$text = nl2br($text);
 
-		return $text;
+		if($striptags)
+			return strip_tags($text);
+		else
+			return $text;
 	}
 
 	/**

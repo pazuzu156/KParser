@@ -134,3 +134,8 @@ echo "</tr>\n";
 
 ?>
 </table>
+
+<?php
+
+$text = "[ul][li]List Item 1[/li][li]List Item 2[/li][/ul]";
+echo KParser::parse($text, false, true);
