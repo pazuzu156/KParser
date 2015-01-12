@@ -1,4 +1,4 @@
-<?php namespace KalebKlein\KParser;
+<?php namespace Pazuzu156\KParser;
 
 use Illuminate\Support\ServiceProvider;
 

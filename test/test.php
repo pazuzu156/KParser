@@ -8,7 +8,7 @@
 
 require __DIR__ . '/../vendor/autoload.php'; // Require the autoloading file from Composer
 
-use KalebKlein\KParser\KParser; // Use the KParser class from the KalebKlein\KParser package
+use Pazuzu156\KParser\KParser; // Use the KParser class from the Pazuzu156\KParser package
 
 ?>
 

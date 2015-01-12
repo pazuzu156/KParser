@@ -1,4 +1,4 @@
-<?php namespace KalebKlein\KParser\Facades;
+<?php namespace Pazuzu156\KParser\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

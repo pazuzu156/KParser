@@ -1,4 +1,4 @@
-<?php namespace KalebKlein\KParser;
+<?php namespace Pazuzu156\KParser;
 
 /**
  * Class KParser

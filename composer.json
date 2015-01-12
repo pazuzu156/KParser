@@ -1,5 +1,5 @@
 {
-    "name": "kalebklein/kparser",
+    "name": "pazuzu156/kparser",
     "description": "Parsing package for my website",
     "keywords": ["parser", "laravel"],
     "homepage": "https://github.com/pazuzu156/kparser",
@@ -20,7 +20,7 @@
         "geshi/geshi": "dev-master"
     },
     "autoload": {
-        "psr-0": {"KalebKlein\\KParser": "src/"}
+        "psr-0": {"Pazuzu156\\KParser": "src/"}
     },
     "minimum-stability": "dev"
 }
