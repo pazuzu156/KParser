@@ -24,7 +24,8 @@ class KParser
 	public function parse($text, $comment = false, $striptags = false)
 	{
 		/* Global patterns for code. Ones to always be parsed. Also the simplest patterns */
-		
+		$pattern[] = '#\[p\](.*?)\[\/p\]#sU';
+		$replace[] = '<p>$1</p>';
 		$pattern[] = '/\[b\](.*?)\[\/b\]/i';
 		$replace[] = '<strong>$1</strong>';
 		$pattern[] = '/\[i\](.*?)\[\/i\]/i';
@@ -49,9 +50,7 @@ class KParser
 		$replace[] = '<blockquote cite="$1">$2</blockquote>';
 		$pattern[] = '/\[url\](.*?)\[\/url\]/i';
 		$replace[] = '<a href="$1">$1</a>';
-		$pattern[] = '/\[p\](.*?)\[\/p\]/i';
-		$replace[] = '<p>$1</p>';
-
+		
 		/* If it's a comment, then certain tags must not be rendered. Namely ones that edit the style of the page */
 		if(!$comment)
 		{
@@ -102,6 +101,10 @@ class KParser
 			}, $text);
 		}
 		
+		/* The IMG tag created an HTML image tag. Size is optional, and if size is used, the height is optional. To define both, using an x between both sizes defines them.
+
+		One size: size=500
+		Both: size=500x400 */
 		$text = preg_replace_callback('/\[img\ssrc=(.*?)(\ssize=([0-9]+)(x[0-9]+)?)?\]/i', function($matches)
 		{
 			if(isset($matches[4]))
