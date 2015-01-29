@@ -24,8 +24,7 @@ class KParser
 	public function parse($text, $comment = false, $striptags = false)
 	{
 		/* Global patterns for code. Ones to always be parsed. Also the simplest patterns */
-		$pattern[] = '/\[p\](.*?)\[\/p\]/i';
-		$replace[] = '<p>$1</p>';
+		
 		$pattern[] = '/\[b\](.*?)\[\/b\]/i';
 		$replace[] = '<strong>$1</strong>';
 		$pattern[] = '/\[i\](.*?)\[\/i\]/i';
@@ -50,6 +49,8 @@ class KParser
 		$replace[] = '<blockquote cite="$1">$2</blockquote>';
 		$pattern[] = '/\[url\](.*?)\[\/url\]/i';
 		$replace[] = '<a href="$1">$1</a>';
+		$pattern[] = '/\[p\](.*?)\[\/p\]/i';
+		$replace[] = '<p>$1</p>';
 
 		/* If it's a comment, then certain tags must not be rendered. Namely ones that edit the style of the page */
 		if(!$comment)
