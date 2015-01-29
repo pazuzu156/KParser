@@ -30,8 +30,6 @@ class KParser
 		$replace[] = '<strong>$1</strong>';
 		$pattern[] = '/\[i\](.*?)\[\/i\]/i';
 		$replace[] = '<em>$1</em>';
-		$pattern[] = '/\[img\ssrc=(.*?)\]/i';
-		$replace[] = '<img src="$1">';
 		$pattern[] = '/\[u\](.*?)\[\/u\]/i';
 		$replace[] = '<span style="text-decoration: underline;">$1</span>';
 		$pattern[] = '/\[s\](.*?)\[\/s\]/i';
@@ -102,6 +100,22 @@ class KParser
 				return $s;
 			}, $text);
 		}
+		
+		$text = preg_replace_callback('/\[img\ssrc=(.*?)(\ssize=([0-9]+)(x[0-9]+)?)?\]/i', function($matches)
+		{
+			if(isset($matches[4]))
+				$size2 = 'height="' . str_replace('x', '', $matches[4]) . '"';
+			if(isset($matches[3]))
+				$size1 = 'width="' . $matches[3] . '"';
+			$url = $matches[1];
+			
+			$image = '<img src="' . $url . '"';
+			$image .= (isset($size1)) ? " " . $size1 : "";
+			$image .= (isset($size2)) ? " " . $size2 : "";
+			$image .= ">";
+			
+			return $image;
+		}, $text);
 
 		/* The URL tag is also a bit more complicating to parse. It supportes http, https, and mailto links.
 		 * It also supports opening links in a new tab using the newtab directive */

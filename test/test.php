@@ -46,7 +46,9 @@ hr.hrclass
 $text = "[p]My Paragraph[/p]";
 $text .= "[b]Bold Text[/b][nl]";
 $text .= "[i]Italic Text[/i][nl]";
-$text .= "Image: [img src=http://www.kalebklein.com/images/kk-icon.png][nl]";
+$text .= "Image: [img src=http://cdn.kalebklein.com/images/forum_sig.png][nl]";
+$text .= "Sized Image w/both | 450x90: [img src=http://cdn.kalebklein.com/images/forum_sig.png size=450x90][nl]";
+$text .= "Sized Image w/ single | 450: [img src=http://cdn.kalebklein.com/images/forum_sig.png size=450][nl]";
 $text .= "[u]Underlined Text[/u][nl]";
 $text .= "[s]Strike Through Text[/s][nl]";
 $text .= "[o]Overlined Text[/o][nl]";

@@ -27,6 +27,9 @@ KParser is a parsing tool for my website. It's got BBCode, some of my own varian
 [url]Unnamed URL[/url]
 [url=http://example.com]Named URL[/url]
 [url=http://example.com newtab]Named URL that opens in a new tab[/url]
+[img src=http://example.com/images/image.jpg] Image
+[img src=http://example.com/images/image.jpg size=150] Sized image defining width
+[img src=http://example.com/images/image.jpg size=150x100] Sized image defining width and height
 ```
 
 
