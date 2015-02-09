@@ -24,7 +24,7 @@ class KParser
 	public function parse($text, $comment = false, $striptags = false)
 	{
 		/* Global patterns for code. Ones to always be parsed. Also the simplest patterns */
-		$pattern[] = '#\[p\](.*?)\[\/p\]#sU';
+		$pattern[] = '/\[p\](.*?)\[\/p\]/i';
 		$replace[] = '<p>$1</p>';
 		$pattern[] = '/\[b\](.*?)\[\/b\]/i';
 		$replace[] = '<strong>$1</strong>';
