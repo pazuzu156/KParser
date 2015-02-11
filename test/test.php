@@ -83,7 +83,15 @@ int main()
 
 	return 0;
 }[/code]";
-$text .= "Video: [youtube url=https://www.youtube.com/watch?v=g4rYh3e97VU]";
+$text .= "Youtube Video: [youtube url=https://www.youtube.com/watch?v=g4rYh3e97VU][nl]";
+
+$text .= "HTML5 Video:[nl][video src=http://cdn.kalebklein.com/kparser/video.mp4][nl]";
+
+$text .= "HTML5 Video with controls:[nl][video src=http://cdn.kalebklein.com/kparser/video.mp4 controls][nl]";
+
+$text .= "HTML5 Video with width & height size:[nl][video src=http://cdn.kalebklein.com/kparser/video.mp4 controls size=500x400][nl]";
+
+$text .= "HTML5 Video with global size:[nl][video src=http://cdn.kalebklein.com/kparser/video.mp4 size=500][nl]";
 
 $text .= "[hr type=hrclass]";
 $text .= "<h2>Emoticons</h2>";

@@ -30,6 +30,11 @@ KParser is a parsing tool for my website. It's got BBCode, some of my own varian
 [img src=http://example.com/images/image.jpg] Image
 [img src=http://example.com/images/image.jpg size=150] Sized image defining width
 [img src=http://example.com/images/image.jpg size=150x100] Sized image defining width and height
+[video src=http://example.com/videos/video.mp4] HTML5 video
+[video src=http://example.com/videos/video.mp4 controls] HTML5 video with controls
+[video src=http://example.com/videos/video.mp4 size=500x400] HTML5 video with width and height
+[video src=http://example.com/videos/video.mp4 size=500] HTML5 video with global size
+[video src=http://example.com/videos/video.mp4 controls size=500] HTML5 video with global size and controls
 ```
 
 

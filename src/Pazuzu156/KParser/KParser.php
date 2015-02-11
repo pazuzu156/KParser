@@ -99,6 +99,22 @@ class KParser
 					. '<p>Sorry, your browser doesn\'t support the iFrame element!</p></iframe>';
 				return $s;
 			}, $text);
+
+			$text = preg_replace_callback('/\[video\ssrc=(.*?)(\scontrols)?(\ssize=([0-9]+)(x[0-9]+)?)?\]/i', function($matches) {
+				$s = '<video ';
+				$s .= (isset($matches[4])) ? 'width="' . $matches[4] . '" ' : '';
+				if(isset($matches[5]))
+					$s .= 'height="' . str_replace('x', '', $matches[5]) . '"';
+				$s .= (isset($matches[2])) ? ' controls' : '';
+				$s .= '>';
+				$s .= "\n\t" . '<source src="' . $matches[1] . '" type="video/';
+				$ext = explode('.', $matches[1]);
+				$ext = array_reverse($ext);
+				$s .= $ext[0];
+				$s .= '">' . "\n\t<p>Your browser does not support HTML5 video</p>";
+				$s .= "</video>";
+				return $s;
+			}, $text);
 		}
 		
 		/* The IMG tag created an HTML image tag. Size is optional, and if size is used, the height is optional. To define both, using an x between both sizes defines them.
