@@ -64,7 +64,7 @@ Once you've done that, include the service provider and facade into app/config/a
 To use KParser, you can either include it into the php file or use the facade to integrate it into Blade. The facade is also extended into class usage itself, as demonstrated below
 ```php
 <?php
-use KalebKlein\KParser\KParser;
+use Pazuzu156\KParser\KParser;
 
 class MyController extends Controller
 {
