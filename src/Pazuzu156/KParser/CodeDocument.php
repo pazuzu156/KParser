@@ -54,7 +54,7 @@ class CodeDocument
 	public function parse()
 	{
 		// Codeblock header | Shows the language being used
-		$return = "<div class='codeBlock codeBlockHeader'>Code Language: " . $this->_language . "</div>";
+		$return = "<div class='codeBlock codeBlockHeader'>Code Language: " . $this->_geshi->get_language_name() . "</div>";
 		$return .= $this->_geshi->parse_code(); // Parses code using the GeSHi instance
 		return $return;
 	}
