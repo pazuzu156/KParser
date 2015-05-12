@@ -36,8 +36,8 @@ class KParser
 		$replace[] = '<span style="text-decoration: line-through;">$1</span>';
 		$pattern[] = '/\[o\](.*?)\[\/o\]/i';
 		$replace[] = '<span style="text-decoration: overline;">$1</span>';
-		$pattern[] = '/\[size=([0-9]+)(?:px|pt)?\](.*?)\[\/size\]/i';
-		$replace[] = '<span style="font-size: $1;">$2</span>';
+		$pattern[] = '/\[size=([0-9]+)(px|pt)\](.*?)\[\/size\]/i';
+		$replace[] = '<span style="font-size: $1$2;">$3</span>';
 		$pattern[] = '/\[color=(\#[a-fA-F0-9]+)\](.*?)\[\/color\]/i';
 		$replace[] = '<span style="color: $1">$2</span>';
 		$pattern[] = '/\[color=([a-zA-Z]+)\](.*?)\[\/color\]/i';
