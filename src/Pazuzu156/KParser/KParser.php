@@ -134,7 +134,7 @@ class KParser
 				$size1 = 'width="' . $matches[3] . '"';
 			$url = $matches[1];
 			
-			$image = '<img src="' . $url . '"';
+			$image = '<img class="gallery" src="' . $url . '"';
 			$image .= (isset($size1)) ? " " . $size1 : "";
 			$image .= (isset($size2)) ? " " . $size2 : "";
 			$image .= ">";
