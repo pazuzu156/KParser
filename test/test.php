@@ -63,7 +63,7 @@ $text .= "Ordered List: [ol][nl]";
 $text .= "[li]List Item 1[/li]";
 $text .= "[li]List Item 2[/li]";
 $text .= "[li]List Item 3[/li][/ol]";
-$text .= "[size=20]20px Sized Text[/size][nl]";
+$text .= "[size=20px]20px Sized Text[/size][nl]";
 $text .= "[color=red]Red Text[/color][nl]";
 $text .= "[color=#00ff00]Green Text[/color][nl]";
 $text .= "[center]Centered Text[/center][nl]";
