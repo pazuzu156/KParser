@@ -47,6 +47,7 @@ $text = "[p]My Paragraph[/p]";
 $text .= "[b]Bold Text[/b][nl]";
 $text .= "[i]Italic Text[/i][nl]";
 $text .= "Image: [img src=http://cdn.kalebklein.com/images/forum_sig.png][nl]";
+$text .= "Class Image: [img src=http://cdn.kalebklein.com/images/forum_sig.png class=gallery][nl]";
 $text .= "Sized Image w/both | 450x90: [img src=http://cdn.kalebklein.com/images/forum_sig.png size=450x90][nl]";
 $text .= "Sized Image w/ single | 450: [img src=http://cdn.kalebklein.com/images/forum_sig.png size=450][nl]";
 $text .= "[u]Underlined Text[/u][nl]";
@@ -72,7 +73,7 @@ $text .= "[url=http://www.kalebklein.com]My Website[/url] - Link with URL[nl]";
 $text .= "[url=http://www.google.com newtab]Google[/url] - Link with URL that opens in a new tab[nl]";
 $text .= "[url]http://www.facebook.com[/url] - Unnamed URL[nl]";
 
-$text .= "[code=cpp]#include \"<iostream>\"
+$text .= "[code=cpp]#include <iostream>
 
 using namespace std;
 
@@ -96,7 +97,10 @@ $text .= "HTML5 Video with global size:[nl][video src=http://cdn.kalebklein.com/
 $text .= "[hr type=hrclass]";
 $text .= "<h2>Emoticons</h2>";
 
-echo KParser::parse($text);
+$parser = new KParser;
+echo $parser->parse($text);
+
+//echo KParser::parse($text);
 
 ?>
 
@@ -137,7 +141,7 @@ echo "</tr>\n<tr>\n";
 
 foreach($emotearray as $emote)
 {
-	echo "<td style='border: 1px inset #000;'>\n\t" . KParser::parse($emote, true) . "\n</td>" . "\n";
+	echo "<td style='border: 1px inset #000;'>\n\t" . $parser->parse($emote, true) . "\n</td>" . "\n";
 }
 
 echo "</tr>\n";
@@ -148,4 +152,4 @@ echo "</tr>\n";
 <?php
 
 $text = "[ul][li]List Item 1[/li][li]List Item 2[/li][/ul]";
-echo KParser::parse($text, false, true);
+echo $parser->parse($text, false, true);

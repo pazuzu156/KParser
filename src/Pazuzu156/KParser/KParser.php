@@ -126,19 +126,22 @@ class KParser
 
 		One size: size=500
 		Both: size=500x400 */
-		$text = preg_replace_callback('/\[img\ssrc=(.*?)(\ssize=([0-9]+)(x[0-9]+)?)?\]/i', function($matches)
+		$text = preg_replace_callback('/\[img\ssrc=(.*?)(\sclass=([a-z._-]+))?(\ssize=([0-9]+)(x[0-9]+)?)?\]/i', function($matches)
 		{
-			if(isset($matches[4]))
-				$size2 = 'height="' . str_replace('x', '', $matches[4]) . '"';
-			if(isset($matches[3]))
-				$size1 = 'width="' . $matches[3] . '"';
+			if(isset($matches[6]))
+				$size2 = 'height="' . str_replace('x', '', $matches[6]) . '"';
+			if(isset($matches[5]))
+				$size1 = 'width="' . $matches[5] . '"';
 			$url = $matches[1];
+			if(isset($matches[3]))
+				$class = 'class="' . $matches[3] . '"';
 			
-			$image = '<img class="gallery" src="' . $url . '"';
+			$image = '<img src="' . $url . '"';
+			$image .= (isset($class)) ? " " . $class : "";
 			$image .= (isset($size1)) ? " " . $size1 : "";
 			$image .= (isset($size2)) ? " " . $size2 : "";
 			$image .= ">";
-			
+
 			return $image;
 		}, $text);
 
