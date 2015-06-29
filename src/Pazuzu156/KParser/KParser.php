@@ -133,7 +133,7 @@ class KParser
 			if(isset($matches[5]))
 				$size1 = 'width="' . $matches[5] . '"';
 			$url = $matches[1];
-			if(isset($matches[3]))
+			if(isset($matches[3]) && !empty($matches[3]))
 				$class = 'class="' . $matches[3] . '"';
 			
 			$image = '<img src="' . $url . '"';
@@ -141,6 +141,8 @@ class KParser
 			$image .= (isset($size1)) ? " " . $size1 : "";
 			$image .= (isset($size2)) ? " " . $size2 : "";
 			$image .= ">";
+
+			// $image = print_r($matches);
 
 			return $image;
 		}, $text);
