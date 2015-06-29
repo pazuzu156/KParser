@@ -126,7 +126,7 @@ class KParser
 
 		One size: size=500
 		Both: size=500x400 */
-		$text = preg_replace_callback('/\[img\ssrc=(.*?)(\sclass=([a-z._-]+))?(\ssize=([0-9]+)(x[0-9]+)?)?\]/i', function($matches)
+		$text = preg_replace_callback('/\[img\ssrc=(.*?)(\sclass=([a-zA-Z0-9._-]+))?(\ssize=([0-9]+)(x[0-9]+)?)?\]/i', function($matches)
 		{
 			if(isset($matches[6]))
 				$size2 = 'height="' . str_replace('x', '', $matches[6]) . '"';
