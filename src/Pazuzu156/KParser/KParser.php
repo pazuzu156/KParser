@@ -7,9 +7,9 @@
  * to be used for. :)
  *
  * @package KalebKlein\KParser
- * @copyright 2014 Kaleb Klein
+ * @copyright 2014-2015 Kaleb Klein
  * @author Kaleb Klein <klein.jae@gmail.com>
- * @version 1.0.4
+ * @version 1.1.4
  */
 class KParser
 {
@@ -54,6 +54,42 @@ class KParser
 		/* This is for paragraph parsing. */
 		$text = preg_replace_callback('#\[p\](.*)\[\/p\]#sU', function($matches) {
 			return "<p>" . $matches[1] . "</p>";
+		}, $text);
+
+		/* This is for headings */
+		$text = preg_replace_callback('#\[h([0-6])\](.*)\[\/h([0-6])\]#sU', function($matches) {
+			if($matches[1]==$matches[3])
+			{
+				return "<h" . $matches[1] . ">" . $matches[2] . "</h" . $matches[1] . ">";
+			}
+		}, $text);
+
+		/* Spaces */
+		$text = preg_replace_callback('/\[space([0-9]{1,})?\]/i', function ($matches) {
+			if(isset($matches[1]))
+			{
+				$r = "";
+				for($i = 0; $i < $matches[1]; $i++)
+				{
+					$r .= "&nbsp;";
+				}
+				return $r;
+			}
+			else
+			{
+				return "&nbsp;";
+			}
+		}, $text);
+
+		/* Tabs */
+		$text = preg_replace_callback('/\[tab([0-9]{1,3})?\]/i', function ($matches) {
+			$num = (isset($matches[1])) ? $matches[1] : 1;
+			$tab = "";
+			for($i = 0; $i < $num; $i++)
+			{
+				$tab .= "&nbsp;&nbsp;&nbsp;&nbsp;";
+			}
+			return $tab;
 		}, $text);
 
 		/* If it's a comment, then certain tags must not be rendered. Namely ones that edit the style of the page */

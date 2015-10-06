@@ -43,7 +43,9 @@ hr.hrclass
 
 <?php
 
-$text = "[p]My Paragraph[/p]";
+$text = "[h1]Heading 1[/h1]";
+$text .= "[h6]Heading 6[/h6]";
+$text .= "[p]My Paragraph[/p]";
 $text .= "[b]Bold Text[/b][nl]";
 $text .= "[i]Italic Text[/i][nl]";
 $text .= "Image: [img src=http://cdn.kalebklein.com/images/forum_sig.png][nl]";
@@ -72,6 +74,8 @@ $text .= "[quote=Wikipedia]A quote from a known source. Source cited in code[/qu
 $text .= "[url=http://www.kalebklein.com]My Website[/url] - Link with URL[nl]";
 $text .= "[url=http://www.google.com newtab]Google[/url] - Link with URL that opens in a new tab[nl]";
 $text .= "[url]http://www.facebook.com[/url] - Unnamed URL[nl]";
+$text .= "Word[space]1 space[space4]4 spaces[nl]";
+$text .= "Word[tab]Single tab[tab4]4 tabs[nl]";
 
 $text .= "[code=cpp]#include <iostream>
 
