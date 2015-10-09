@@ -2,7 +2,7 @@
     "name": "pazuzu156/kparser",
     "description": "Parsing package for my website",
     "keywords": ["parser", "laravel"],
-    "homepage": "https://github.com/pazuzu156/kparser",
+    "homepage": "http://pazuzu156.github.io/KParser",
     "type": "library",
     "license": "GPL",
     "authors": [
