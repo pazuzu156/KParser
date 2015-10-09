@@ -50,6 +50,8 @@ class KParser
 		$replace[] = '<blockquote cite="$1">$2</blockquote>';
 		$pattern[] = '/\[url\](.*?)\[\/url\]/i';
 		$replace[] = '<a href="$1">$1</a>';
+		$pattern[] = '/\[cmd\](.*?)\[\/cmd\]/i';
+		$replace[] = '<pre><code>\$ $1</code></pre>';
 
 		/* This is for paragraph parsing. */
 		$text = preg_replace_callback('#\[p\](.*)\[\/p\]#sU', function($matches) {

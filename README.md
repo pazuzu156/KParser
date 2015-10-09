@@ -41,6 +41,7 @@ KParser is a parsing tool for my website. It's got BBCode, some of my own varian
 [spaceNUMBER]A NUMBER of spaces
 [tab]A single tab
 [tabNUMBER]A NUMBER of tabs
+[cmd]Command line command[/cmd] - Shows a command block using <pre> and <code>
 ```
 
 

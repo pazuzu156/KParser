@@ -1,159 +1,143 @@
 <?php
 
-/**
- * test.php
- *
- * PHP File that tests each tag built in to KParser
- */
-
 require __DIR__ . '/../vendor/autoload.php'; // Require the autoloading file from Composer
 
 use Pazuzu156\KParser\KParser; // Use the KParser class from the Pazuzu156\KParser package
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>KScript Examples</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://bootswatch.com/simplex/bootstrap.min.css">
+	<style type="text/css">
+		hr.hrclass
+		{
+			height: 5px;
+			border: none;
+			background-color: #ccc;
+			border-radius: 2px;
+			margin: 25px 0;
+		}
 
-<!-- Style for custom hr and codeblock -->
-<style type="text/css">
-hr.hrclass
-{
-	height: 5px;
-	border: none;
-	background-color: #ccc;
-	border-radius: 2px;
-	margin: 25px 0;
-}
-
-.codeBlock {
-	background:#dae4ed;
-	border:1px solid #0D8EFF;
-	color:#000;
-	padding:5px;
-	font-family: monospace;
-	overflow: auto;
-	font-size: 12px;
-	max-height: 300px;
-}
-.codeBlockHeader {
-	color: green;
-	margin-bottom: -15px;
-	font-weight: bold;
-	padding: 10px 10px;
-}
-</style>
-
-<?php
-
-$text = "[h1]Heading 1[/h1]";
-$text .= "[h6]Heading 6[/h6]";
-$text .= "[p]My Paragraph[/p]";
-$text .= "[b]Bold Text[/b][nl]";
-$text .= "[i]Italic Text[/i][nl]";
-$text .= "Image: [img src=http://cdn.kalebklein.com/images/forum_sig.png][nl]";
-$text .= "Class Image: [img src=http://cdn.kalebklein.com/images/forum_sig.png class=gallery][nl]";
-$text .= "Sized Image w/both | 450x90: [img src=http://cdn.kalebklein.com/images/forum_sig.png size=450x90][nl]";
-$text .= "Sized Image w/ single | 450: [img src=http://cdn.kalebklein.com/images/forum_sig.png size=450][nl]";
-$text .= "[u]Underlined Text[/u][nl]";
-$text .= "[s]Strike Through Text[/s][nl]";
-$text .= "[o]Overlined Text[/o][nl]";
-$text .= "Horizontal Rule: [hr]";
-$text .= "Horizontal Rule With Style: [hr type=hrclass]";
-$text .= "Unordered List: [ul][nl]";
-$text .= "[li]List Item 1[/li]";
-$text .= "[li]List Item 2[/li]";
-$text .= "[li]List Item 3[/li][/ul]";
-$text .= "Ordered List: [ol][nl]";
-$text .= "[li]List Item 1[/li]";
-$text .= "[li]List Item 2[/li]";
-$text .= "[li]List Item 3[/li][/ol]";
-$text .= "[size=20px]20px Sized Text[/size][nl]";
-$text .= "[color=red]Red Text[/color][nl]";
-$text .= "[color=#00ff00]Green Text[/color][nl]";
-$text .= "[center]Centered Text[/center][nl]";
-$text .= "[quote]Quote from unknown source. So citation left out[/quote]";
-$text .= "[quote=Wikipedia]A quote from a known source. Source cited in code[/quote]";
-$text .= "[url=http://www.kalebklein.com]My Website[/url] - Link with URL[nl]";
-$text .= "[url=http://www.google.com newtab]Google[/url] - Link with URL that opens in a new tab[nl]";
-$text .= "[url]http://www.facebook.com[/url] - Unnamed URL[nl]";
-$text .= "Word[space]1 space[space4]4 spaces[nl]";
-$text .= "Word[tab]Single tab[tab4]4 tabs[nl]";
-
-$text .= "[code=cpp]#include <iostream>
-
-using namespace std;
-
-int main()
-{
-	cout << \"Hello World!\";
-	cin.get();
-
-	return 0;
-}[/code]";
-$text .= "Youtube Video: [youtube url=https://www.youtube.com/watch?v=g4rYh3e97VU][nl]";
-
-$text .= "HTML5 Video:[nl][video src=http://cdn.kalebklein.com/kparser/video.mp4][nl]";
-
-$text .= "HTML5 Video with controls:[nl][video src=http://cdn.kalebklein.com/kparser/video.mp4 controls][nl]";
-
-$text .= "HTML5 Video with width & height size:[nl][video src=http://cdn.kalebklein.com/kparser/video.mp4 controls size=500x400][nl]";
-
-$text .= "HTML5 Video with global size:[nl][video src=http://cdn.kalebklein.com/kparser/video.mp4 size=500][nl]";
-
-$text .= "[hr type=hrclass]";
-$text .= "<h2>Emoticons</h2>";
-
-$parser = new KParser;
-echo $parser->parse($text);
-
-//echo KParser::parse($text);
-
-?>
-
-<table style="text-align: center; border: 1px outset #000">
-
-<?php
-
-$emotearray = array(
-	":angry:",
-	":arrow:",
-	":bigsmile:",
-	":blink:",
-	":cool:",
-	":dunno:",
-	":!:",
-	":omg:",
-	":laugh:",
-	":ohmy:",
-	":ninja:",
-	":puke:",
-	":??:",
-	":we:",
-	":frown:",
-	":smile:",
-	":tongue:",
-	":123:",
-	":wink:"
-);
-
-echo "<tr>\n";
-
-foreach($emotearray as $emote)
-{
-	echo "<th style='border: 1px inset #000;'>\n\t" . $emote . "\n</th>\n";
-}
-
-echo "</tr>\n<tr>\n";
-
-foreach($emotearray as $emote)
-{
-	echo "<td style='border: 1px inset #000;'>\n\t" . $parser->parse($emote, true) . "\n</td>" . "\n";
-}
-
-echo "</tr>\n";
-
-?>
-</table>
-
-<?php
-
-$text = "[ul][li]List Item 1[/li][li]List Item 2[/li][/ul]";
-echo $parser->parse($text, false, true);
+		.codeBlock {
+			background:#dae4ed;
+			border:1px solid #0D8EFF;
+			color:#000;
+			padding:5px;
+			font-family: monospace;
+			overflow: auto;
+			font-size: 12px;
+			max-height: 300px;
+		}
+		.codeBlockHeader {
+			color: green;
+			margin-bottom: -15px;
+			font-weight: bold;
+			padding: 10px 10px;
+		}
+	</style>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">KScript Examples</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" data-toggle="modal" data-target="#aboutModal">About</a></li>
+        <li><a href="http://kalebklein.com" target="_blank">My Website</a></li>
+        <li class="dropdown">
+        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        		Extra <span class="caret"></span>
+        	</a>
+        	<ul class="dropdown-menu">
+        		<li><a href="https://github.com/pazuzu156/KParser" target="_blank">Fork on GitHub</a></li>
+        		<li><a href="https://packagist.org/packages/pazuzu156/kparser" target="_blank">View on Packagist</a></li>
+        	</ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+	<div class="panel panel-warning">
+		<div class="panel-heading">
+			All Supported Tags
+		</div>
+		<div class="panel-body">
+			[p]Paragraph Tag[/p]<br>
+			[b]Bold Text Tag[/p]<br>
+			[i]Italicized Tag[/i]<br>
+			[u]Underlined Text Tag[/u]<br>
+			[s]Strikethrough Text Tag[/s]<br>
+			[o]Overlined Text Tag[/o]<br>
+			[hr] - Horizonal Rule Tag<br>
+			[hr type=classname] - Horizonal Rule Tag with custom class<br>
+			[ul]Unordered List[/ul]<br>
+			[ol]Ordered List[/ol]<br>
+			[li]List Item Tag - Place inside ordered or unordered list tags[/li]<br>
+			[code=language]Code Block Tag[/code] - Code block is tied in with GeSHi; the syntax highlighter for PHP. GeSHi is required to use KParser because of this<br>
+			[youtube url=YOUTUBE_VIDEO_URL] - Uses full or share link for YouTube videos<br>
+			[size=SIZE]Sized text based on SIZE[/size]<br>
+			[color=COLOR]Colored text based on COLOR. Can be real value or HEX (red OR #ff0000)[/color]<br>
+			[center]Centered Text[/center]<br>
+			[quote]Quoted text with no source cited[/quote]<br>
+			[quote=Quoted Dude]Quoted text with source cited[/quote]<br>
+			[url]Unnamed URL[/url]<br>
+			[url=http://example.com]Named URL[/url]<br>
+			[url=http://example.com newtab]Named URL that opens in a new tab[/url]<br>
+			[img src=http://example.com/images/image.jpg] Image<br>
+			[img src=http://example.com/images/image.jpg class=img-class] Image with class<br>
+			[img src=http://example.com/images/image.jpg size=150] Sized image defining width<br>
+			[img src=http://example.com/images/image.jpg size=150x100] Sized image defining width and height<br>
+			[video src=http://example.com/videos/video.mp4] HTML5 video<br>
+			[video src=http://example.com/videos/video.mp4 controls] HTML5 video with controls<br>
+			[video src=http://example.com/videos/video.mp4 size=500x400] HTML5 video with width and height<br>
+			[video src=http://example.com/videos/video.mp4 size=500] HTML5 video with global size<br>
+			[video src=http://example.com/videos/video.mp4 controls size=500] HTML5 video with global size and controls<br>
+			[hNUMBER]Heading. 1-6 for NUMBER[/hNUMBER]<br>
+			[space]A single space<br>
+			[spaceNUMBER]A NUMBER of spaces<br>
+			[tab]A single tab<br>
+			[tabNUMBER]A NUMBER of tabs<br>
+			[cmd]Command line command[/cmd] - Shows a command block using &lt;pre&gt; and &lt;code&gt;
+		</div>
+	</div>
+	<hr class="hrclass">
+	<h1>All Tags in Action</h1>
+	<?php require_once 'exp1.php'; ?>
+	<table style="text-align: center; border: 1px outset #000">
+	<?php require_once 'exp2.php'; ?>
+</div>
+<div class="modal fade" id="aboutModal" role="dialog" aria-labeledby="aboutModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="aboutModalLabel">About KParser &amp; KScript</h4>
+			</div>
+			<div class="modal-body">
+				KParser is a PHP class that parses KScript, the page content script I use for my website.<br><br>
+				KParser is compatible with both Laravel 4 and Laravel 5, so integrating KParser into Laravel is quite simple.<br><br>
+				Be sure to <a href="https://github.com/pazuzu156/KParser" target="_blank">fork the project</a> and check out KParser on <a href="https://packagist.org/packages/pazuzu156/kparser" target="_blank">Packagist</a> for getting KParser via Composer
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-default" type="button" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
