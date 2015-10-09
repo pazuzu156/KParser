@@ -9,7 +9,7 @@
  * @package KalebKlein\KParser
  * @copyright 2014-2015 Kaleb Klein
  * @author Kaleb Klein <klein.jae@gmail.com>
- * @version 1.1.4
+ * @version 1.1.5
  */
 class KParser
 {
