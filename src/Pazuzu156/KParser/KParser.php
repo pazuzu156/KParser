@@ -23,6 +23,19 @@ class KParser
 	 */
 	public function parse($text, $comment = false, $striptags = false)
 	{
+		/* 
+		 * This is for the noparse tag
+		 *
+		 * This must be run first, so it removes any [] from the code, otherwise, something might
+		 * get parsed first before this can strip the brackets
+		 */
+		$text = preg_replace_callback('#\[noparse\](.*?)\[\/noparse\]#sU', function($matches) {
+			$m = $matches[1];
+			$m = preg_replace('/\[/i', '&#91;', $m);
+			$m = preg_replace('/\]/i', '&#93;', $m);
+			return $m;
+		}, $text);
+
 		/* Global patterns for code. Ones to always be parsed. Also the simplest patterns */
 		//$pattern[] = '/\[p\](.*?)\[\/p\]/i';
 		//$replace[] = '<p>$1</p>';
@@ -56,13 +69,6 @@ class KParser
 		/* This is for paragraph parsing. */
 		$text = preg_replace_callback('#\[p\](.*)\[\/p\]#sU', function($matches) {
 			return "<p>" . $matches[1] . "</p>";
-		}, $text);
-
-		/* This is for the noparse tag */
-		$text = preg_replace_callback('#\[noparse\](.*?)\[\/noparse\]#sU', function($matches) {
-			$m = $matches[1];
-			$m = preg_replace('/\[/i', '&#91;', $m);
-			return $m;
 		}, $text);
 
 		/* This is for headings */
