@@ -42,6 +42,7 @@ KParser is a parsing tool for my website. It's got BBCode, some of my own varian
 [tab]A single tab
 [tabNUMBER]A NUMBER of tabs
 [cmd]Command line command[/cmd] - Shows a command block using <pre> and <code>
+[noparse]Place KScript code in here[/noparse] - Prevents KScript from being parsed inside this block 
 ```
 
 
