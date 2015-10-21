@@ -39,6 +39,8 @@ $text .= "Word[space]1 space[space4]4 spaces[nl]";
 $text .= "Word[tab]Single tab[tab4]4 tabs[nl]";
 $text .= "Command:[nl][cmd]nano /etc/pacman.d/mirrorlist[/cmd][nl]";
 
+$text .= "No Parse:[nl][noparse][code=php]this is a code block[/code][nl]-newline[p]paragraph[/p][/noparse][nl][nl]";
+
 $text .= "[code=cpp]#include <iostream>
 
 using namespace std;

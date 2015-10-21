@@ -38,39 +38,43 @@ use Pazuzu156\KParser\KParser; // Use the KParser class from the Pazuzu156\KPars
 			font-weight: bold;
 			padding: 10px 10px;
 		}
+		.navbar-inverse {
+			border-radius: 0;
+		}
 	</style>
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
+	<a href="https://github.com/pazuzu156/KParser"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 9999;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
 	<nav class="navbar navbar-inverse">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">KScript Examples</a>
-    </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" data-toggle="modal" data-target="#aboutModal">About</a></li>
-        <li><a href="http://kalebklein.com" target="_blank">My Website</a></li>
-        <li class="dropdown">
-        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-        		Extra <span class="caret"></span>
-        	</a>
-        	<ul class="dropdown-menu">
-        		<li><a href="https://github.com/pazuzu156/KParser" target="_blank">Fork on GitHub</a></li>
-        		<li><a href="https://packagist.org/packages/pazuzu156/kparser" target="_blank">View on Packagist</a></li>
-        	</ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+	  <div class="container">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">KScript Examples</a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="#" data-toggle="modal" data-target="#aboutModal">About</a></li>
+	        <li><a href="http://kalebklein.com" target="_blank">My Website</a></li>
+	        <li class="dropdown">
+	        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+	        		Extra <span class="caret"></span>
+	        	</a>
+	        	<ul class="dropdown-menu">
+	        		<li><a href="https://github.com/pazuzu156/KParser" target="_blank">Fork on GitHub</a></li>
+	        		<li><a href="https://packagist.org/packages/pazuzu156/kparser" target="_blank">View on Packagist</a></li>
+	        	</ul>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
 <div class="container">
 	<div class="panel panel-warning">
 		<div class="panel-heading">
@@ -112,7 +116,8 @@ use Pazuzu156\KParser\KParser; // Use the KParser class from the Pazuzu156\KPars
 			[spaceNUMBER]A NUMBER of spaces<br>
 			[tab]A single tab<br>
 			[tabNUMBER]A NUMBER of tabs<br>
-			[cmd]Command line command[/cmd] - Shows a command block using &lt;pre&gt; and &lt;code&gt;
+			[cmd]Command line command[/cmd] - Shows a command block using &lt;pre&gt; and &lt;code&gt;<br>
+			[noparse]Place KScript code in here[/noparse] - Prevents KScript from being parsed inside this block
 		</div>
 	</div>
 	<hr class="hrclass">

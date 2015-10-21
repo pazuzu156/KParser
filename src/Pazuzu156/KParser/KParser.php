@@ -47,7 +47,7 @@ class KParser
 		$pattern[] = '/\[quote\](.*?)\[\/quote\]/i';
 		$replace[] = '<blockquote>$1</blockquote>';
 		$pattern[] = '/\[quote\=([a-zA-Z0-9\.\_\-\s]+)\](.*?)\[\/quote\]/i';
-		$replace[] = '<blockquote cite="$1">$2</blockquote>';
+		$replace[] = '<blockquote cite="$1">$2<footer>Quoted: <cite title="$1">$1</cite></footer></blockquote>';
 		$pattern[] = '/\[url\](.*?)\[\/url\]/i';
 		$replace[] = '<a href="$1">$1</a>';
 		$pattern[] = '/\[cmd\](.*?)\[\/cmd\]/i';
@@ -56,6 +56,13 @@ class KParser
 		/* This is for paragraph parsing. */
 		$text = preg_replace_callback('#\[p\](.*)\[\/p\]#sU', function($matches) {
 			return "<p>" . $matches[1] . "</p>";
+		}, $text);
+
+		/* This is for the noparse tag */
+		$text = preg_replace_callback('#\[noparse\](.*?)\[\/noparse\]#sU', function($matches) {
+			$m = $matches[1];
+			$m = preg_replace('/\[/i', '&#91;', $m);
+			return $m;
 		}, $text);
 
 		/* This is for headings */
