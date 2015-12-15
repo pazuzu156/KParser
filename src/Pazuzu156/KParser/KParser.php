@@ -200,12 +200,14 @@ class KParser
 		 * It also supports opening links in a new tab using the newtab directive */
 		$text = preg_replace_callback('/\[url=(http:\/\/|https:\/\/|mailto:)(.*?)(\snewtab)?\](.*?)\[\/url\]/i', function($matches) {
 			$target = $matches[3] ? " target=\"_blank\">" : ">";
+			
+			$hint = "<sup>[" . $matches[2] . "]</sup>";
 
 			$link = "<a href=\""
 				. $matches[1] . $matches[2] . "\""
 				. $target
 				. $matches[4]
-				. "</a>";
+				. "</a> " . $hint;
 
 			return $link;
 		}, $text);
