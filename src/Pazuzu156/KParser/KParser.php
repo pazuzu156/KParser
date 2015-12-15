@@ -201,7 +201,8 @@ class KParser
 		$text = preg_replace_callback('/\[url=(http:\/\/|https:\/\/|mailto:)(.*?)(\snewtab)?\](.*?)\[\/url\]/i', function($matches) {
 			$target = $matches[3] ? " target=\"_blank\">" : ">";
 			
-			$hint = "<sup>[" . $matches[2] . "]</sup>";
+			$hintURL = explode('/', $matches[2])[0];
+			$hint = "<sup>[" . $hintURL . "]</sup>";
 
 			$link = "<a href=\""
 				. $matches[1] . $matches[2] . "\""
