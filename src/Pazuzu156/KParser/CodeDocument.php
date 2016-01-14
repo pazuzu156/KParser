@@ -43,6 +43,7 @@ class CodeDocument
 		$this->_geshi->enable_keyword_links(false); // Disable keyword links in code
 		$this->_geshi->set_tab_width(4); // Set the tab width of code
 		$this->_geshi->set_overall_class('codeBlock'); // Class for custom styling
+        $this->_geshi->set_overall_style('font-family:Inconsolata, monospace;');
 	}
 
 	/**
