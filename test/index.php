@@ -21,22 +21,25 @@ use Pazuzu156\KParser\KParser; // Use the KParser class from the Pazuzu156\KPars
 			border-radius: 2px;
 			margin: 25px 0;
 		}
-
-		.codeBlock {
-			background:#dae4ed;
-			border:1px solid #0D8EFF;
-			color:#000;
-			padding:5px;
+		.codeBlock
+		{
+			background: #dae4ed;
+			border: 1px solid #0D8EFF;
+			color: #000;
+			padding: 5px;
 			font-family: monospace;
 			overflow: auto;
 			font-size: 12px;
 			max-height: 300px;
 		}
-		.codeBlockHeader {
+
+		.codeBlockHeader
+		{
 			color: green;
 			margin-bottom: -15px;
 			font-weight: bold;
 			padding: 10px 10px;
+			background: url('http://cdn.kalebklein.com/kparser/img/cbh.png');
 		}
 		.navbar-inverse {
 			border-radius: 0;
