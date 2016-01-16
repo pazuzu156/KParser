@@ -120,7 +120,8 @@ use Pazuzu156\KParser\KParser; // Use the KParser class from the Pazuzu156\KPars
 			[tab]A single tab<br>
 			[tabNUMBER]A NUMBER of tabs<br>
 			[cmd]Command line command[/cmd] - Shows a command block using &lt;pre&gt; and &lt;code&gt;<br>
-			[noparse]Place KScript code in here[/noparse] - Prevents KScript from being parsed inside this block
+			[noparse]Place KScript code in here[/noparse] - Prevents KScript from being parsed inside this block<br>
+            [cmt=COMMENT]Write a comment in your code to yourself ;)
 		</div>
 	</div>
 	<hr class="hrclass">

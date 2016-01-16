@@ -39,7 +39,11 @@ $text .= "Word[space]1 space[space4]4 spaces[nl]";
 $text .= "Word[tab]Single tab[tab4]4 tabs[nl]";
 $text .= "Command:[nl][cmd]nano /etc/pacman.d/mirrorlist[/cmd][nl]";
 
-$text .= "No Parse:[nl][noparse][code=php]this is a code block[/code][nl]-newline[p]paragraph[/p][/noparse][nl][nl]";
+$text .= "[nl][nl]Comment:[nl][cmt=This is a comment]You can't see it :). It looks like: [noparse][cmt=This is a comment][/noparse][nl][nl]";
+
+$text .= "No Parse:[nl][noparse]
+    [code=php]this is a code block[/code][nl]-newline[p]paragraph[/p]
+[/noparse][nl][nl]";
 
 $text .= "[code=cpp]#include <iostream>
 

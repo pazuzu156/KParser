@@ -29,7 +29,7 @@ class KParser
 		 * This must be run first, so it removes any [] from the code, otherwise, something might
 		 * get parsed first before this can strip the brackets
 		 */
-		$text = preg_replace_callback('#\[noparse\](.*?)\[\/noparse\]#sU', function($matches) {
+		$text = preg_replace_callback('/\[noparse\](.*?)\[\/noparse\]/sim', function($matches) {
 			$m = $matches[1];
 			$m = preg_replace('/\[/i', '&#91;', $m);
 			$m = preg_replace('/\]/i', '&#93;', $m);
@@ -64,7 +64,9 @@ class KParser
 		$pattern[] = '/\[url\](.*?)\[\/url\]/i';
 		$replace[] = '<a href="$1">$1</a>';
 		$pattern[] = '/\[cmd\](.*?)\[\/cmd\]/i';
-		$replace[] = '<pre><code>\$ $1</code></pre>';
+        $replace[] = '<pre><code>\$ $1</code></pre>';
+        $pattern[] = '/\[cmt=(.*?)\]/i';
+        $replace[] = '';
 
 		/* This is for paragraph parsing. */
 		$text = preg_replace_callback('#\[p\](.*)\[\/p\]#sU', function($matches) {
