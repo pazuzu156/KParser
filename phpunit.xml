@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+    colors="true"
+    convertErrorsToExceptions="true"
+    verbose="true"
+    syntaxCheck="true"
+    stopOnError="false">
+    <testsuites>
+        <testsuite name="KParser Test Suite">
+            <directory suffix="Test.php">./tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
