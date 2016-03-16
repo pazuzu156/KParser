@@ -1,5 +1,11 @@
 # KParser
-A simple parsing tool for my website
+[![Build Status](https://travis-ci.org/pazuzu156/KParser.svg?branch=master)](https://travis-ci.org/pazuzu156/KParser)
+[![Latest Stable Version](https://poser.pugx.org/pazuzu156/kparser/v/stable)](https://packagist.org/packages/pazuzu156/kparser)
+[![Total Downloads](https://poser.pugx.org/pazuzu156/kparser/downloads)](https://packagist.org/packages/pazuzu156/kparser)
+[![Latest Unstable Version](https://poser.pugx.org/pazuzu156/kparser/v/unstable)](https://packagist.org/packages/pazuzu156/kparser)
+[![License](https://poser.pugx.org/pazuzu156/kparser/license)](https://packagist.org/packages/pazuzu156/kparser)
+
+A simple parsing tool for my website.
 
 ## About
 KParser is a parsing tool for my website. It's got BBCode, some of my own variants of it, and syntax highlighting support with GeSHi
