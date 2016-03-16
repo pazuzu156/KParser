@@ -4,48 +4,49 @@ require __DIR__ . '/../vendor/autoload.php'; // Require the autoloading file fro
 
 use Pazuzu156\KParser\KParser; // Use the KParser class from the Pazuzu156\KParser package
 
-$text = "[h1]Heading 1[/h1]";
-$text .= "[h6]Heading 6[/h6]";
-$text .= "[p]My Paragraph[/p]";
-$text .= "[b]Bold Text[/b][nl]";
-$text .= "[i]Italic Text[/i][nl]";
-$text .= "Image: [img src=http://cdn.kalebklein.com/images/forum_sig.png][nl]";
-$text .= "Class Image: [img src=http://cdn.kalebklein.com/images/forum_sig.png class=gallery][nl]";
-$text .= "Sized Image w/both | 450x90: [img src=http://cdn.kalebklein.com/images/forum_sig.png size=450x90][nl]";
-$text .= "Sized Image w/ single | 450: [img src=http://cdn.kalebklein.com/images/forum_sig.png size=450][nl]";
-$text .= "[u]Underlined Text[/u][nl]";
-$text .= "[s]Strike Through Text[/s][nl]";
-$text .= "[o]Overlined Text[/o][nl]";
-$text .= "Horizontal Rule: [hr]";
-$text .= "Horizontal Rule With Style: [hr type=hrclass]";
-$text .= "Unordered List: [ul][nl]";
-$text .= "[li]List Item 1[/li]";
-$text .= "[li]List Item 2[/li]";
-$text .= "[li]List Item 3[/li][/ul]";
-$text .= "Ordered List: [ol][nl]";
-$text .= "[li]List Item 1[/li]";
-$text .= "[li]List Item 2[/li]";
-$text .= "[li]List Item 3[/li][/ol]";
-$text .= "[size=20px]20px Sized Text[/size][nl]";
-$text .= "[color=red]Red Text[/color][nl]";
-$text .= "[color=#00ff00]Green Text[/color][nl]";
-$text .= "[center]Centered Text[/center][nl]";
-$text .= "[quote]Quote from unknown source. So citation left out[/quote]";
-$text .= "[quote=Wikipedia]A quote from a known source. Source cited in code[/quote]";
-$text .= "[url=http://www.kalebklein.com]My Website[/url] - Link with URL[nl]";
-$text .= "[url=http://www.google.com newtab]Google[/url] - Link with URL that opens in a new tab[nl]";
-$text .= "[url]http://www.facebook.com[/url] - Unnamed URL[nl]";
-$text .= "Word[space]1 space[space4]4 spaces[nl]";
-$text .= "Word[tab]Single tab[tab4]4 tabs[nl]";
-$text .= "Command:[nl][cmd]nano /etc/pacman.d/mirrorlist[/cmd][nl]";
+$text = <<<EOF
+[h1]Heading 1[/h1]
+[h6]Heading 6[/h6]
+[p]My Paragraph[/p]
+[b]Bold Text[/b][nl]
+[i]Italic Text[/i][nl]
+Image: [img src=http://cdn.kalebklein.com/images/forum_sig.png][nl]
+Class Image: [img src=http://cdn.kalebklein.com/images/forum_sig.png class=gallery][nl]
+Sized Image w/both | 450x90: [img src=http://cdn.kalebklein.com/images/forum_sig.png size=450x90][nl]
+Sized Image w/ single | 450: [img src=http://cdn.kalebklein.com/images/forum_sig.png size=450][nl]
+[u]Underlined Text[/u][nl]
+[s]Strike Through Text[/s][nl]
+[o]Overlined Text[/o][nl]
+Horizontal Rule: [hr]
+Horizontal Rule With Style: [hr type=hrclass]
+Unordered List: [ul][nl]
+[li]List Item 1[/li]
+[li]List Item 2[/li]
+[li]List Item 3[/li][/ul]
+Ordered List: [ol][nl]
+[li]List Item 1[/li]
+[li]List Item 2[/li]
+[li]List Item 3[/li][/ol]
+[size=20px]20px Sized Text[/size][nl]
+[color=red]Red Text[/color][nl]
+[color=#00ff00]Green Text[/color][nl]
+[center]Centered Text[/center][nl]
+[quote]Quote from unknown source. So citation left out[/quote]
+[quote=Wikipedia]A quote from a known source. Source cited in code[/quote]
+[url=http://www.kalebklein.com]My Website[/url] - Link with URL[nl]
+[url=http://www.google.com newtab]Google[/url] - Link with URL that opens in a new tab[nl]
+[url]http://www.facebook.com[/url] - Unnamed URL[nl]
+Word[space]1 space[space4]4 spaces[nl]
+Word[tab]Single tab[tab4]4 tabs[nl]
+Command:[nl][cmd]nano /etc/pacman.d/mirrorlist[/cmd][nl]
 
-$text .= "[nl][nl]Comment:[nl][cmt=This is a comment]You can't see it :). It looks like: [noparse][cmt=This is a comment][/noparse][nl][nl]";
+[nl][nl]Comment:[nl][cmt=This is a comment]You can't see it :). It looks like: [noparse][cmt=This is a comment][/noparse][nl][nl]
 
-$text .= "No Parse:[nl][noparse]
+No Parse:[nl][noparse]
     [code=php]this is a code block[/code][nl]-newline[p]paragraph[/p]
-[/noparse][nl][nl]";
+[/noparse][nl][nl]
 
-$text .= "[code=cpp]#include <iostream>
+[code=cpp]#include <iostream>
 
 using namespace std;
 
@@ -55,19 +56,20 @@ int main()
 	cin.get();
 
 	return 0;
-}[/code]";
-$text .= "Youtube Video: [youtube url=https://www.youtube.com/watch?v=g4rYh3e97VU][nl]";
+}[/code]
+Youtube Video: [youtube url=https://www.youtube.com/watch?v=g4rYh3e97VU][nl]
 
-$text .= "HTML5 Video:[nl][video src=http://cdn.kalebklein.com/kparser/video.mp4][nl]";
+HTML5 Video:[nl][video src=http://cdn.kalebklein.com/kparser/video.mp4][nl]
 
-$text .= "HTML5 Video with controls:[nl][video src=http://cdn.kalebklein.com/kparser/video.mp4 controls][nl]";
+HTML5 Video with controls:[nl][video src=http://cdn.kalebklein.com/kparser/video.mp4 controls][nl]
 
-$text .= "HTML5 Video with width & height size:[nl][video src=http://cdn.kalebklein.com/kparser/video.mp4 controls size=500x400][nl]";
+HTML5 Video with width & height size:[nl][video src=http://cdn.kalebklein.com/kparser/video.mp4 controls size=500x400][nl]
 
-$text .= "HTML5 Video with global size:[nl][video src=http://cdn.kalebklein.com/kparser/video.mp4 size=500][nl]";
+HTML5 Video with global size:[nl][video src=http://cdn.kalebklein.com/kparser/video.mp4 size=500][nl]
 
-$text .= "[hr type=hrclass]";
-$text .= "<h2>Emoticons</h2>";
+[hr type=hrclass]
+<h2>Emoticons</h2>
+EOF;
 
 $parser = new KParser;
 echo $parser->parse($text);
