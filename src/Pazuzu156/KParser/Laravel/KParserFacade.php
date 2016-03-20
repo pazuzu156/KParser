@@ -1,4 +1,4 @@
-<?php namespace Pazuzu156\KParser\Facades;
+<?php namespace Pazuzu156\KParser\Laravel;
 
 use Illuminate\Support\Facades\Facade;
 

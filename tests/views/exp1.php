@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/../vendor/autoload.php'; // Require the autoloading file from Composer
+require __DIR__ . '/../../vendor/autoload.php'; // Require the autoloading file from Composer
 
 use Pazuzu156\KParser\KParser; // Use the KParser class from the Pazuzu156\KParser package
 

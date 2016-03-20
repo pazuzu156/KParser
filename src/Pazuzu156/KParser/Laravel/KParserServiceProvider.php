@@ -1,6 +1,8 @@
-<?php namespace Pazuzu156\KParser;
+<?php namespace Pazuzu156\KParser\Laravel;
 
 use Illuminate\Support\ServiceProvider;
+
+use Pazuzu156\KParser\KParser;
 
 class KParserServiceProvider extends ServiceProvider
 {

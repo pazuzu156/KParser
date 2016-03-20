@@ -1,34 +1,12 @@
 <?php namespace Pazuzu156\KParser\SimpleMVC;
 
+use SimpleMVC\Support\Facades\Facade;
 use Pazuzu156\KParser\KParser;
 
-class KParserFacade
+class KParserFacade extends Facade
 {
-    /**
-     * Alias's instance
-     *
-     * @var \Pazuzu156\KParser\KParser
-     */
-    private static $instance;
-
-    /**
-     * Boot sequence for alias
-     *
-     * @return void
-     */
-    public static function boot()
+    protected static function getFacadeAccessor()
     {
-        self::$instance = new KParser;
-    }
-
-    /**
-     * Parse content
-     *
-     * @param string $string
-     * @return string
-     */
-    public static function parse($string)
-    {
-        return self::$instance->parse($string);
+        return 'kparser';
     }
 }
