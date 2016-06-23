@@ -13,4 +13,4 @@ goto run
 composer install
 
 :run
-"%PHP%" -S 127.0.0.1:8080 -t test
+"%PHP%" -S 127.0.0.1:8080 -t tests/views
