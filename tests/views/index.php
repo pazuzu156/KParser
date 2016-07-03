@@ -121,7 +121,9 @@ use Pazuzu156\KParser\KParser; // Use the KParser class from the Pazuzu156\KPars
 			[tabNUMBER]A NUMBER of tabs<br>
 			[cmd]Command line command[/cmd] - Shows a command block using &lt;pre&gt; and &lt;code&gt;<br>
 			[noparse]Place KScript code in here[/noparse] - Prevents KScript from being parsed inside this block<br>
-            [cmt=COMMENT]Write a comment in your code to yourself ;)
+            [cmt=COMMENT]Write a comment in your code to yourself ;)<br>
+            [terminal user=root host=kalebklein.com][command]A command[/command][response]Response to a command[/response][/terminal]<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you wish to display a terminal window with cool styling, use this one. :)
 		</div>
 	</div>
 	<hr class="hrclass">
@@ -129,6 +131,7 @@ use Pazuzu156\KParser\KParser; // Use the KParser class from the Pazuzu156\KPars
 	<?php require_once 'exp1.php'; ?>
 	<table style="text-align: center; border: 1px outset #000">
 	<?php require_once 'exp2.php'; ?>
+	<?php require_once 'exp3.php'; ?>
 </div>
 <div class="modal fade" id="aboutModal" role="dialog" aria-labeledby="aboutModalLabel">
 	<div class="modal-dialog" role="document">
