@@ -249,9 +249,9 @@ class KParser
 <div class="terminal">
 	<div class="terminal-header">
 		<div class="buttons">
-			<div class="button quit"></div>
-			<div class="button maximize"></div>
-			<div class="button minimize"></div>
+			<div class="terminal-button quit"></div>
+			<div class="terminal-button maximize"></div>
+			<div class="terminal-button minimize"></div>
 		</div>
 		<div class="title">
 			Terminal: '.$m[1].'@'.$m[2].' ~
