@@ -284,7 +284,7 @@ class KParser
 			return $terminal02;
 			}, $m[3]);
 
-			$terminal03 = '</div></div></div></div>';
+			$terminal03 = '</div></div></div>';
 
 			$terminal = $terminal01 . $m[3] . $terminal03;
 

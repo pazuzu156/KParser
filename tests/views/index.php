@@ -128,10 +128,12 @@ use Pazuzu156\KParser\KParser; // Use the KParser class from the Pazuzu156\KPars
 	</div>
 	<hr class="hrclass">
 	<h1>All Tags in Action</h1>
+	<?php require_once 'exp3.php'; ?>
 	<?php require_once 'exp1.php'; ?>
 	<table style="text-align: center; border: 1px outset #000">
+
 	<?php require_once 'exp2.php'; ?>
-	<?php require_once 'exp3.php'; ?>
+	
 </div>
 <div class="modal fade" id="aboutModal" role="dialog" aria-labeledby="aboutModalLabel">
 	<div class="modal-dialog" role="document">
