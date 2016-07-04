@@ -223,7 +223,7 @@ class KParser
 		{
 			if(preg_match('#\[code=([a-zA-Z0-9]+)](.+)\[/code]#sU', $text)
 				||
-				preg_match('#\[terminal\suser=([a-zA-Z0-9._-]+)\shost=([a-zA-Z0-9._-]+)\](.+)\[\/terminal\]#sU', $text))
+				preg_match('#\[terminal\suser=([a-zA-Z0-9._-]+)\shost=([a-zA-Z0-9._-]+)(\stheme=([a-zA-Z0-9]+))?\](.+)\[\/terminal\]#sU', $text))
 			{
 				$text = self::parseEmoticons($text);
 			}
@@ -243,9 +243,13 @@ class KParser
 		}, $text);
 
 		// terminal. Is parsed away from emoticons
-		$text = preg_replace_callback('#\[terminal\suser=([a-zA-Z0-9._-]+)\shost=([a-zA-Z0-9._-]+)\](.+)\[\/terminal\]#sU', function($m)
+		$text = preg_replace_callback('#\[terminal\suser=([a-zA-Z0-9._-]+)\shost=([a-zA-Z0-9._-]+)(\stheme=([a-zA-Z0-9]+))?\](.+)\[\/terminal\]#sU', function($m)
 		{
-			$terminal01 = '<link rel="stylesheet" type"text/css" href="http://cdn.kalebklein.com/extras/css/terminal.css">
+			$terminal01 = '<link rel="stylesheet" type"text/css" href="http://cdn.kalebklein.com/kparser/term/terminal.css">';
+
+			$style = (empty($m[3])) ? "default" : $m[4];
+
+			$terminal01 .= '<link rel="stylesheet" type="text/css" href="http://cdn.kalebklein.com/kparser/term/themes/'.$style.'.css">
 <div class="terminal">
 	<div class="terminal-header">
 		<div class="buttons">
@@ -261,7 +265,7 @@ class KParser
 		<div class="body-container">';
 
 			// A given command
-			$m[3] = preg_replace_callback('#\[command\](.+)\[\/command\]#sU', function($mm) use ($m)
+			$m[5] = preg_replace_callback('#\[command\](.+)\[\/command\]#sU', function($mm) use ($m)
 			{
 				$terminal02 = '<div class="command-line">
 				<div class="hostname">
@@ -271,10 +275,10 @@ class KParser
 			</div>';
 
 				return $terminal02;
-			}, $m[3]);
+			}, $m[5]);
 
 			// If you wish to give a response to a command
-			$m[3] = preg_replace_callback('#\[response\](.+)\[\/response\]#sU', function($mmm)
+			$m[5] = preg_replace_callback('#\[response\](.+)\[\/response\]#sU', function($mmm)
 			{
 				$terminal02 = '<div class="command-line">
 				<div class="hostname"></div>
@@ -282,11 +286,11 @@ class KParser
 			</div>';
 
 			return $terminal02;
-			}, $m[3]);
+			}, $m[5]);
 
 			$terminal03 = '</div></div></div>';
 
-			$terminal = $terminal01 . $m[3] . $terminal03;
+			$terminal = $terminal01 . $m[5] . $terminal03;
 
 			return $terminal;
 		}, $text);
