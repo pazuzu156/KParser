@@ -14,7 +14,17 @@ Terminal Output:[nl]
 [command]which sh[/command]
 [response]/usr/bin/sh[/response]
 [/terminal]
+[p]Supported themes:
+[ol]
+[li]Default ^ The one you see here[/li]
+[li]KParser[/li]
+[li]Solarized[/li]
+[li]Solarized Dark[/li]
+[li]Bluebird[/li]
+[/ol]
+You can view the different themes supported by the Terminal widget by using the [url=http://testsites.kalebklein.com/terminal/ newtab]KParser Terminal Style Tester Tool[/url][/p]
 EOF;
 
 $parser = new KParser;
 echo $parser->parse($content);
+
