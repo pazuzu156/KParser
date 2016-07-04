@@ -117,12 +117,61 @@
 			[noparse]Place KScript code in here[/noparse] - Prevents KScript from being parsed inside this block<br>
             [cmt=COMMENT]Write a comment in your code to yourself ;)<br>
             [terminal user=root host=kalebklein.com][command]A command[/command][response]Response to a command[/response][/terminal]<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you wish to display a terminal window with cool styling, use this one. :)
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you wish to display a terminal window with cool styling, use this one. :)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An option theme attribute is also there, if you wish to select a theme for the widget. Ex: theme=solarized
 		</div>
 	</div>
 	<hr class="hrclass">
 	<h1>All Tags in Action</h1>
-	<h1>Heading 1</h1>
+	<hr class="hrclass">
+<h2>Terminal</h2>
+Terminal Output:<br>
+<link rel="stylesheet" type"text/css" href="http://cdn.kalebklein.com/kparser/term/terminal.css"><link rel="stylesheet" type="text/css" href="http://cdn.kalebklein.com/kparser/term/themes/default.css">
+<div class="terminal">
+	<div class="terminal-header">
+		<div class="buttons">
+			<div class="terminal-button quit"></div>
+			<div class="terminal-button maximize"></div>
+			<div class="terminal-button minimize"></div>
+		</div>
+		<div class="title">
+			Terminal: root@kalebklein.com ~
+		</div>
+	</div>
+	<div class="terminal-body">
+		<div class="body-container">
+<div class="command-line">
+				<div class="hostname">
+					[<span class="user">root</span>@<span class="host">kalebklein.com</span> <span class="where">~</span>]: #
+				</div>
+				<div class="command">ls -l</div>
+			</div>
+<div class="command-line">
+				<div class="hostname">
+					[<span class="user">root</span>@<span class="host">kalebklein.com</span> <span class="where">~</span>]: #
+				</div>
+				<div class="command">clear</div>
+			</div>
+<div class="command-line">
+				<div class="hostname">
+					[<span class="user">root</span>@<span class="host">kalebklein.com</span> <span class="where">~</span>]: #
+				</div>
+				<div class="command">which sh</div>
+			</div>
+<div class="command-line">
+				<div class="hostname"></div>
+				<div class="command command-response">/usr/bin/sh</div>
+			</div>
+</div></div></div>
+<p>Supported themes:
+<ol>
+<li>Default ^ The one you see here</li>
+<li>KParser</li>
+<li>Solarized</li>
+<li>Solarized Dark</li>
+<li>Bluebird</li>
+</ol>
+You can view the different themes supported by the Terminal widget by using the <a href="http://testsites.kalebklein.com/terminal/" target="_blank">KParser Terminal Style Tester Tool</a> <sup>[testsites.kalebklein.com]</sup></p>	<h1>Heading 1</h1>
 <h6>Heading 6</h6>
 <p>My Paragraph</p>
 <strong>Bold Text</strong><br>
@@ -184,6 +233,7 @@ HTML5 Video with global size:<br><video width="500"  controls>
 
 <hr class="hrclass">
 <h2>Emoticons</h2>	<table style="text-align: center; border: 1px outset #000">
+
 	<tr>
 <th style='border: 1px inset #000;'>
 	:angry:
@@ -304,46 +354,8 @@ HTML5 Video with global size:<br><video width="500"  controls>
 </tr>
 </table>
 <br><br>
-	<hr class="hrclass">
-<h2>Terminal</h2>
-Terminal Output:<br>
-<link rel="stylesheet" type"text/css" href="http://cdn.kalebklein.com/extras/css/terminal.css">
-<div class="terminal">
-	<div class="terminal-header">
-		<div class="buttons">
-			<div class="button quit"></div>
-			<div class="button maximize"></div>
-			<div class="button minimize"></div>
-		</div>
-		<div class="title">
-			Terminal: root@kalebklein.com ~
-		</div>
-	</div>
-	<div class="terminal-body">
-		<div class="body-container">
-<div class="command-line">
-				<div class="hostname">
-					[<span class="user">root</span>@<span class="host">kalebklein.com</span> <span class="where">~</span>]: #
-				</div>
-				<div class="command">ls -l</div>
-			</div>
-<div class="command-line">
-				<div class="hostname">
-					[<span class="user">root</span>@<span class="host">kalebklein.com</span> <span class="where">~</span>]: #
-				</div>
-				<div class="command">clear</div>
-			</div>
-<div class="command-line">
-				<div class="hostname">
-					[<span class="user">root</span>@<span class="host">kalebklein.com</span> <span class="where">~</span>]: #
-				</div>
-				<div class="command">which sh</div>
-			</div>
-<div class="command-line">
-				<div class="hostname"></div>
-				<div class="command command-response">/usr/bin/sh</div>
-			</div>
-</div></div></div></div></div>
+	
+</div>
 <div class="modal fade" id="aboutModal" role="dialog" aria-labeledby="aboutModalLabel">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
