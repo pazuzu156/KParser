@@ -269,7 +269,7 @@ class KParser
 			{
 				$terminal02 = '<div class="command-line">
 				<div class="hostname">
-					[<span class="user">'.$m[1].'</span>@<span class="host">'.$m[2].'</span> <span class="where">~</span>]: #
+					[<span class="user">'.$m[1].'</span><span class="at">@</span><span class="host">'.$m[2].'</span> <span class="where">~</span>]: #
 				</div>
 				<div class="command">'.$mm[1].'</div>
 			</div>';
