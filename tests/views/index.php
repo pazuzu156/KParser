@@ -123,7 +123,8 @@ use Pazuzu156\KParser\KParser; // Use the KParser class from the Pazuzu156\KPars
 			[noparse]Place KScript code in here[/noparse] - Prevents KScript from being parsed inside this block<br>
             [cmt=COMMENT]Write a comment in your code to yourself ;)<br>
             [terminal user=root host=kalebklein.com][command]A command[/command][response]Response to a command[/response][/terminal]<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you wish to display a terminal window with cool styling, use this one. :)
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you wish to display a terminal window with cool styling, use this one. :)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An option theme attribute is also there, if you wish to select a theme for the widget. Ex: theme=solarized
 		</div>
 	</div>
 	<hr class="hrclass">
