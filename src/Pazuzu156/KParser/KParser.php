@@ -245,7 +245,7 @@ class KParser
 		// terminal. Is parsed away from emoticons
 		$text = preg_replace_callback('#\[terminal\suser=([a-zA-Z0-9._-]+)\shost=([a-zA-Z0-9._-]+)(\stheme=([a-zA-Z0-9\-]+))?\](.+)\[\/terminal\]#sU', function($m)
 		{
-			$terminal01 = '<link rel="stylesheet" type"text/css" href="http://cdn.kalebklein.com/kparser/term/terminal.css">';
+			$terminal01 = '<link rel="stylesheet" type="text/css" href="http://cdn.kalebklein.com/kparser/term/terminal.css">';
 
 			$style = (empty($m[3])) ? "default" : $m[4];
 
