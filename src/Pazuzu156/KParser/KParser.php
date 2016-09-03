@@ -267,12 +267,7 @@ class KParser
 			// A given command
 			$m[5] = preg_replace_callback('#\[command\](.+)\[\/command\]#sU', function($mm) use ($m)
 			{
-				$terminal02 = '<div class="command-line">
-				<div class="hostname">
-					[<span class="user">'.$m[1].'</span><span class="at">@</span><span class="host">'.$m[2].'</span> <span class="where">~</span>]: #
-				</div>
-				<div class="command">'.$mm[1].'</div>
-			</div>';
+				$terminal02 = '<div class="command-line"><div class="hostname">[<span class="user">'.$m[1].'</span><span class="at">@</span><span class="host">'.$m[2].'</span> <span class="where">~</span>]: #</div><div class="command">'.$mm[1].'</div></div>';
 
 				return $terminal02;
 			}, $m[5]);
@@ -280,10 +275,7 @@ class KParser
 			// If you wish to give a response to a command
 			$m[5] = preg_replace_callback('#\[response\](.+)\[\/response\]#sU', function($mmm)
 			{
-				$terminal02 = '<div class="command-line">
-				<div class="hostname"></div>
-				<div class="command command-response">'.$mmm[1].'</div>
-			</div>';
+				$terminal02 = '<div class="command-line"><div class="hostname"></div><div class="command command-response">'.$mmm[1].'</div></div>';
 
 			return $terminal02;
 			}, $m[5]);
