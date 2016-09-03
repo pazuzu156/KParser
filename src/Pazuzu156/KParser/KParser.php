@@ -249,20 +249,7 @@ class KParser
 
 			$style = (empty($m[3])) ? "default" : $m[4];
 
-			$terminal01 .= '<link rel="stylesheet" type="text/css" href="http://cdn.kalebklein.com/kparser/term/themes/'.$style.'.css">
-<div class="terminal">
-	<div class="terminal-header">
-		<div class="buttons">
-			<div class="terminal-button quit"></div>
-			<div class="terminal-button maximize"></div>
-			<div class="terminal-button minimize"></div>
-		</div>
-		<div class="title">
-			Terminal: '.$m[1].'@'.$m[2].' ~
-		</div>
-	</div>
-	<div class="terminal-body">
-		<div class="body-container">';
+			$terminal01 .= '<link rel="stylesheet" type="text/css" href="http://cdn.kalebklein.com/kparser/term/themes/'.$style.'.css"><div class="terminal"><div class="terminal-header"><div class="buttons"><div class="terminal-button quit"></div><div class="terminal-button maximize"></div><div class="terminal-button minimize"></div></div><div class="title">Terminal: '.$m[1].'@'.$m[2].' ~</div></div><div class="terminal-body"><div class="body-container">';
 
 			// A given command
 			$m[5] = preg_replace_callback('#\[command\](.+)\[\/command\]#sU', function($mm) use ($m)
