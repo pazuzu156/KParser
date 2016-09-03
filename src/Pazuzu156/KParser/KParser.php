@@ -6,9 +6,9 @@
  * Parsing class for parsing supported tags into HTML. For use in blogs and such. Or whatever you want it
  * to be used for. :)
  *
- * @copyright 2014-2015 Kaleb Klein
+ * @copyright 2014-2016 Kaleb Klein
  * @author Kaleb Klein <klein.jae@gmail.com>
- * @version 1.1.5
+ * @version 1.2.3
  */
 class KParser
 {
