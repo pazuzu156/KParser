@@ -1,6 +1,6 @@
-<?php namespace Pazuzu156\KParser\SimpleMVC;
+<?php namespace Pazuzu156\KParser\Scara;
 
-use SimpleMVC\Support\Facades\Facade;
+use Scara\Support\Facades\Facade;
 use Pazuzu156\KParser\KParser;
 
 class KParserFacade extends Facade

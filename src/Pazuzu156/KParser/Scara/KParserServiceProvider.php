@@ -1,6 +1,6 @@
-<?php namespace Pazuzu156\KParser\SimpleMVC;
+<?php namespace Pazuzu156\KParser\Scara;
 
-use SimpleMVC\Support\ServiceProvider;
+use Scara\Support\ServiceProvider;
 
 use Pazuzu156\KParser\KParser;
 
