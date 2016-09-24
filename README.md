@@ -95,7 +95,7 @@ class MyController extends Controller
 ```php
 @extends('layout.main')
 @section('content')
-{{ KParser::parse([code=php]<?php echo "Hello World!"; ?>[/code]) }}
+{!! KParser::parse([code=php]<?php echo "Hello World!"; ?>[/code]) !!}
 @stop
 ```
 
