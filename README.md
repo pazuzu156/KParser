@@ -68,11 +68,11 @@ If you wish to use the lastest "bleeding-edge" version of KParser, use the follo
 Once you've done that, include the service provider and facade into app/config/app.php  
 <u>Service Provider</u>  
 ```php
-'Pazuzu156\KParser\KParserServiceProvider'
+Pazuzu156\KParser\Laravel\KParserServiceProvider::class
 ```
 <u>Facade</u>
 ```php
-'KParser' => 'Pazuzu156\KParser\Facades\KParserFacade'
+'KParser' => Pazuzu156\KParser\Laravel\KParserFacade::class
 ```
 
 ## Usage
