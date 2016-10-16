@@ -1,4 +1,6 @@
-<?php namespace Pazuzu156\KParser\Scara;
+<?php
+
+namespace Pazuzu156\KParser\Scara;
 
 use Scara\Support\Facades\Facade;
 use Pazuzu156\KParser\KParser;

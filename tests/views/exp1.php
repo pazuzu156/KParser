@@ -52,10 +52,10 @@ using namespace std;
 
 int main()
 {
-	cout << \"Hello World!\";
-	cin.get();
+    cout << \"Hello World!\";
+    cin.get();
 
-	return 0;
+    return 0;
 }[/code]
 Youtube Video: [youtube url=https://www.youtube.com/watch?v=g4rYh3e97VU][nl]
 
