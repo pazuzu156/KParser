@@ -5,31 +5,29 @@ namespace Pazuzu156\KParser;
 use GeSHi; // GeSHi is required for this package
 
 /**
- * Class CodeDocument
+ * Class CodeDocument.
  *
  * CodeDocument takes code from the [code][/code] block and parses it into HTML
  * using GeSHi
- *
- * @package KalebKlein\KParser
  */
 class CodeDocument
 {
     /**
-     * CodeDocument instance
+     * CodeDocument instance.
      *
      * @var \Pazuzu156\KParser\CodeDocument
      */
     private static $_instance;
 
     /**
-     * GeSHI Instance
+     * GeSHI Instance.
      *
      * @var \GeSHI
      */
     private $_geshi;
 
     /**
-     * CodeDocument language to render in
+     * CodeDocument language to render in.
      *
      * @var string
      */
@@ -37,7 +35,7 @@ class CodeDocument
 
     /**
      * loadDocument - Loads the current document into a new GeSHi instance
-     * used for syntax highlighting using the [code][/code] block
+     * used for syntax highlighting using the [code][/code] block.
      *
      * @param $code - The code to be parsed through GeSHi
      * @param $lang - The language the code falls under
@@ -58,27 +56,28 @@ class CodeDocument
 
     /**
      * parse - Parses the code that has been loaded into the GeSHi instance
-     * through loadDocument()
+     * through loadDocument().
      *
      * @return string
      */
     public function parse()
     {
         // Codeblock header | Shows the language being used
-        $return = "<div class='codeBlock codeBlockHeader'>Code Language: " . $this->_geshi->get_language_name() . "</div>";
+        $return = "<div class='codeBlock codeBlockHeader'>Code Language: ".$this->_geshi->get_language_name().'</div>';
         $return .= $this->_geshi->parse_code(); // Parses code using the GeSHi instance
         return $return;
     }
 
     /**
-     * getInstance - Gets the instnace of CodeDocument
+     * getInstance - Gets the instnace of CodeDocument.
      *
      * @return \Pazuzu156\KParser\CodeDocument
      */
     public static function getInstance()
     {
-        if(self::$_instance == NULL)
-            self::$_instance = new CodeDocument;
+        if (self::$_instance == null) {
+            self::$_instance = new self();
+        }
 
         return self::$_instance;
     }

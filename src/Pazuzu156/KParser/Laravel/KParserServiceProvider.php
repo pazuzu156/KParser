@@ -16,7 +16,7 @@ class KParserServiceProvider extends ServiceProvider
     {
         $this->app['kparser'] = $this->app->share(
             function ($app) {
-                return new KParser;
+                return new KParser();
             }
         );
     }
@@ -28,6 +28,6 @@ class KParserServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array('kparser');
+        return ['kparser'];
     }
 }

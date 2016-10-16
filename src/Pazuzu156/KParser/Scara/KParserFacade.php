@@ -2,8 +2,8 @@
 
 namespace Pazuzu156\KParser\Scara;
 
-use Scara\Support\Facades\Facade;
 use Pazuzu156\KParser\KParser;
+use Scara\Support\Facades\Facade;
 
 class KParserFacade extends Facade
 {
