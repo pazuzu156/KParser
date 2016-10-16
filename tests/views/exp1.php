@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/../../vendor/autoload.php'; // Require the autoloading file from Composer
+require __DIR__.'/../../vendor/autoload.php'; // Require the autoloading file from Composer
 
 use Pazuzu156\KParser\KParser; // Use the KParser class from the Pazuzu156\KParser package
 
@@ -71,5 +71,5 @@ HTML5 Video with global size:[nl][video src=http://cdn.kalebklein.com/kparser/vi
 <h2>Emoticons</h2>
 EOF;
 
-$parser = new KParser;
+$parser = new KParser();
 echo $parser->parse($text);

@@ -1,10 +1,10 @@
 <?php
 
-require __DIR__ . '/../../vendor/autoload.php'; // Require the autoloading file from Composer
+require __DIR__.'/../../vendor/autoload.php'; // Require the autoloading file from Composer
 
 use Pazuzu156\KParser\KParser; // Use the KParser class from the Pazuzu156\KParser package
 
-$content = <<<EOF
+$content = <<<'EOF'
 [hr type=hrclass]
 <h2>Terminal</h2>
 Terminal Output:[nl]
@@ -28,6 +28,5 @@ Terminal Output:[nl]
 You can view the different themes supported by the Terminal widget by using the [url=http://testsites.kalebklein.com/terminal/ newtab]KParser Terminal Style Tester Tool[/url][/p]
 EOF;
 
-$parser = new KParser;
+$parser = new KParser();
 echo $parser->parse($content);
-
