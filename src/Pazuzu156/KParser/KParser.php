@@ -261,7 +261,7 @@ class KParser
             } else {
                 $m = html_entity_decode($matches[2]);
 
-                return "<pre class=\"language-{$matches[1]}\"><code>{$m}</code></pre>";
+                return "<pre><code class=\"language-{$matches[1]}\">{$m}</code></pre>";
             }
         }, $text);
 
