@@ -163,7 +163,7 @@ class KParser
                 }
 
                 $s = '<iframe id="ytvid" class="ytvid" width="640" height="390" frameborder="0" '
-                    .'src="http://cdn.kalebklein.com/kparser/loadytvid.php?videoID='
+                    .'src="https://cdn.kalebklein.com/kparser/loadytvid.php?videoID='
                     .$videoID.'"'
                     .' style="display: block; overflow: hidden; padding: 0;"'
                     .' scrolling="no">'
@@ -267,11 +267,11 @@ class KParser
 
         // terminal. Is parsed away from emoticons
         $text = preg_replace_callback('#\[terminal\suser=([a-zA-Z0-9._-]+)\shost=([a-zA-Z0-9._-]+)(\stheme=([a-zA-Z0-9\-]+))?\](.+)\[\/terminal\]#sU', function ($m) {
-            $terminal01 = '<link rel="stylesheet" type="text/css" href="http://cdn.kalebklein.com/kparser/term/terminal.css">';
+            $terminal01 = '<link rel="stylesheet" type="text/css" href="https://cdn.kalebklein.com/kparser/term/terminal.css">';
 
             $style = (empty($m[3])) ? 'default' : $m[4];
 
-            $terminal01 .= '<link rel="stylesheet" type="text/css" href="http://cdn.kalebklein.com/kparser/term/themes/'.$style.'.css"><div class="terminal"><div class="terminal-header"><div class="buttons"><div class="terminal-button quit"></div><div class="terminal-button maximize"></div><div class="terminal-button minimize"></div></div><div class="title">Terminal: '.$m[1].'@'.$m[2].' ~</div></div><div class="terminal-body"><div class="body-container">';
+            $terminal01 .= '<link rel="stylesheet" type="text/css" href="https://cdn.kalebklein.com/kparser/term/themes/'.$style.'.css"><div class="terminal"><div class="terminal-header"><div class="buttons"><div class="terminal-button quit"></div><div class="terminal-button maximize"></div><div class="terminal-button minimize"></div></div><div class="title">Terminal: '.$m[1].'@'.$m[2].' ~</div></div><div class="terminal-body"><div class="body-container">';
 
             // A given command
             $m[5] = preg_replace_callback('#\[command\](.+)\[\/command\]#sU', function ($mm) use ($m) {
@@ -351,7 +351,7 @@ class KParser
             $alt = (in_array($key, $swaparray)) ? $value : $key;
             $text = str_replace(
                 ':'.$key.':',
-                '<img src="http://cdn.kalebklein.com/kparser/img/'
+                '<img src="https://cdn.kalebklein.com/kparser/img/'
                 .$value
                 .'.gif" alt="'
                 .$alt
