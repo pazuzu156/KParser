@@ -14,11 +14,9 @@ class KParserServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app['kparser'] = $this->app->share(
-            function ($app) {
-                return new KParser();
-            }
-        );
+        $this->app->singleton('kparser', function($app) {
+            return new KParser();
+        });
     }
 
     /**
