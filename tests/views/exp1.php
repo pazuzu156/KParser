@@ -52,7 +52,7 @@ using namespace std;
 
 int main()
 {
-    cout << \"Hello World!\";
+    cout << "Hello World!";
     cin.get();
 
     return 0;
