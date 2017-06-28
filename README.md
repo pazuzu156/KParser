@@ -92,7 +92,7 @@ class MyController extends Controller
 
 ```
 
-```php
+```blade
 @extends('layout.main')
 @section('content')
 {!! KParser::parse('[code=php]<?php echo "Hello World!"; ?>[/code]') !!}
