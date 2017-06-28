@@ -56,14 +56,15 @@ KParser is a parsing tool for my website. It's got BBCode, some of my own varian
 ## Install
 To install this into Laravel, include the following in your composer.json:  
 ```
-"Pazuzu156/kparser": "1.*",
-"geshi/geshi": "dev-master"
+"pazuzu156/kparser": "1.*",
 ```
 
 If you wish to use the lastest "bleeding-edge" version of KParser, use the following instead of the official release:  
 ```
-"Pazuzu156/kparser": "dev-master"
+"pazuzu156/kparser": "dev-master"
 ```
+
+Or..just use composer ;) `$ composer require pazuzu156/kparser`
 
 Once you've done that, include the service provider and facade into app/config/app.php  
 <u>Service Provider</u>  
