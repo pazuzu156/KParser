@@ -11,7 +11,7 @@ A simple parsing tool for my website.
 KParser is a parsing tool for my website. It's got BBCode, some of my own variants of it, and syntax highlighting support with GeSHi
 
 ## Supported Tags
-````
+```
 [p]Paragraph Tag[/p]  
 [b]Bold Text Tag[/p]  
 [i]Italicized Tag[/i]  
