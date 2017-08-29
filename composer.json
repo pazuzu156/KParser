@@ -22,5 +22,18 @@
     "autoload": {
         "psr-0": {"Pazuzu156\\KParser": "src/"}
     },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.3-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Pazuzu156\\KParser\\Laravel\\KParserServiceProvider"
+            ],
+            "aliases": {
+                "KParser": "Pazuzu156\\KParser\\Laravel\\KParserFacade"
+            }
+        }
+    },
     "minimum-stability": "dev"
 }
