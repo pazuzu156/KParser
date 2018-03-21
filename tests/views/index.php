@@ -11,7 +11,7 @@ use Pazuzu156\KParser\KParser; // Use the KParser class from the Pazuzu156\KPars
     <meta charset="UTF-8">
     <title>KScript Examples</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://bootswatch.com/simplex/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/3/simplex/bootstrap.min.css">
     <style type="text/css">
         hr.hrclass
         {
@@ -49,7 +49,6 @@ use Pazuzu156\KParser\KParser; // Use the KParser class from the Pazuzu156\KPars
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <a href="https://github.com/pazuzu156/KParser"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 9999;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
     <nav class="navbar navbar-inverse">
       <div class="container">
         <div class="navbar-header">
